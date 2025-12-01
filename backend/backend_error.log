@@ -1,0 +1,712 @@
+Global error in process_omr: 'Q_No'
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Q_No'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\main.py", line 61, in process_omr
+    q_num = str(row['Q_No'])
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1133, in __getitem__
+    return self._get_value(key)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1249, in _get_value
+    loc = self.index.get_loc(label)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Q_No'
+Global error in process_omr: 'Q_No'
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Q_No'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\main.py", line 61, in process_omr
+    q_num = str(row['Q_No'])
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1133, in __getitem__
+    return self._get_value(key)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1249, in _get_value
+    loc = self.index.get_loc(label)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Q_No'
+Global error in process_omr: 'Q_No'
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Q_No'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\main.py", line 61, in process_omr
+    q_num = str(row['Q_No'])
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1133, in __getitem__
+    return self._get_value(key)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1249, in _get_value
+    loc = self.index.get_loc(label)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Q_No'
+Global error in process_omr: 'Q_No'
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Q_No'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\main.py", line 61, in process_omr
+    q_num = str(row['Q_No'])
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1133, in __getitem__
+    return self._get_value(key)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1249, in _get_value
+    loc = self.index.get_loc(label)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Q_No'
+Global error in process_omr: 'Q_No'
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Q_No'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\main.py", line 61, in process_omr
+    q_num = str(row['Q_No'])
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1133, in __getitem__
+    return self._get_value(key)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1249, in _get_value
+    loc = self.index.get_loc(label)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Q_No'
+Global error in process_omr: 'Q_No'
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Q_No'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\main.py", line 61, in process_omr
+    q_num = str(row['Q_No'])
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1133, in __getitem__
+    return self._get_value(key)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1249, in _get_value
+    loc = self.index.get_loc(label)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Q_No'
+Global error in process_omr: 'Q_No'
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Q_No'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\main.py", line 61, in process_omr
+    q_num = str(row['Q_No'])
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1133, in __getitem__
+    return self._get_value(key)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1249, in _get_value
+    loc = self.index.get_loc(label)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Q_No'
+Global error in process_omr: 'Q_No'
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Q_No'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\main.py", line 61, in process_omr
+    q_num = str(row['Q_No'])
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1133, in __getitem__
+    return self._get_value(key)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1249, in _get_value
+    loc = self.index.get_loc(label)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Q_No'
+Global error in process_omr: 'Q_No'
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Q_No'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\main.py", line 59, in process_omr
+    q_num = str(row['Q_No'])
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1133, in __getitem__
+    return self._get_value(key)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1249, in _get_value
+    loc = self.index.get_loc(label)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Q_No'
+Global error in process_omr: 'Q_No'
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Q_No'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\main.py", line 59, in process_omr
+    q_num = str(row['Q_No'])
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1133, in __getitem__
+    return self._get_value(key)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1249, in _get_value
+    loc = self.index.get_loc(label)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Q_No'
+Global error in process_omr: 'Q_No'
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Q_No'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\main.py", line 60, in process_omr
+    q_num = str(row['Q_No'])
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1133, in __getitem__
+    return self._get_value(key)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1249, in _get_value
+    loc = self.index.get_loc(label)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Q_No'
+Global error in process_omr: 'Q_No'
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Q_No'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\main.py", line 60, in process_omr
+    q_num = str(row['Q_No'])
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1133, in __getitem__
+    return self._get_value(key)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1249, in _get_value
+    loc = self.index.get_loc(label)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Q_No'
+Global error in process_omr: 'Q_No'
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Q_No'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\main.py", line 60, in process_omr
+    q_num = str(row['Q_No'])
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1133, in __getitem__
+    return self._get_value(key)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1249, in _get_value
+    loc = self.index.get_loc(label)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Q_No'
+Global error in process_omr: 'Q_No'
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Q_No'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\main.py", line 60, in process_omr
+    q_num = str(row['Q_No'])
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1133, in __getitem__
+    return self._get_value(key)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1249, in _get_value
+    loc = self.index.get_loc(label)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Q_No'
+Global error in process_omr: 'Q_No'
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Q_No'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\main.py", line 60, in process_omr
+    q_num = str(row['Q_No'])
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1133, in __getitem__
+    return self._get_value(key)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1249, in _get_value
+    loc = self.index.get_loc(label)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Q_No'
+Global error in process_omr: 'Q_No'
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Q_No'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\main.py", line 60, in process_omr
+    q_num = str(row['Q_No'])
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1133, in __getitem__
+    return self._get_value(key)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1249, in _get_value
+    loc = self.index.get_loc(label)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Q_No'
+Global error in process_omr: 'Q_No'
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Q_No'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\main.py", line 60, in process_omr
+    q_num = str(row['Q_No'])
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1133, in __getitem__
+    return self._get_value(key)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1249, in _get_value
+    loc = self.index.get_loc(label)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Q_No'
+Global error in process_omr: 'Q_No'
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Q_No'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\main.py", line 60, in process_omr
+    q_num = str(row['Q_No'])
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1133, in __getitem__
+    return self._get_value(key)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1249, in _get_value
+    loc = self.index.get_loc(label)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Q_No'
+Global error in process_omr: 'Q_No'
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Q_No'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\main.py", line 60, in process_omr
+    q_num = str(row['Q_No'])
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1133, in __getitem__
+    return self._get_value(key)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1249, in _get_value
+    loc = self.index.get_loc(label)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Q_No'
+Global error in process_omr: 'Q_No'
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Q_No'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\main.py", line 60, in process_omr
+    q_num = str(row['Q_No'])
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1133, in __getitem__
+    return self._get_value(key)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1249, in _get_value
+    loc = self.index.get_loc(label)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Q_No'
+Global error in process_omr: 'Q_No'
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Q_No'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\main.py", line 60, in process_omr
+    q_num = str(row['Q_No'])
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1133, in __getitem__
+    return self._get_value(key)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1249, in _get_value
+    loc = self.index.get_loc(label)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Q_No'
+Global error in process_omr: 'Q_No'
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Q_No'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\main.py", line 60, in process_omr
+    q_num = str(row['Q_No'])
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1133, in __getitem__
+    return self._get_value(key)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1249, in _get_value
+    loc = self.index.get_loc(label)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Q_No'
+Global error in process_omr: 'Q_No'
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Q_No'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\main.py", line 60, in process_omr
+    q_num = str(row['Q_No'])
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1133, in __getitem__
+    return self._get_value(key)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1249, in _get_value
+    loc = self.index.get_loc(label)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Q_No'
+Global error in process_omr: 'Q_No'
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Q_No'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\main.py", line 60, in process_omr
+    q_num = str(row['Q_No'])
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1133, in __getitem__
+    return self._get_value(key)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1249, in _get_value
+    loc = self.index.get_loc(label)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Q_No'
+Global error in process_omr: 'Q_No'
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Q_No'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\main.py", line 60, in process_omr
+    q_num = str(row['Q_No'])
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1133, in __getitem__
+    return self._get_value(key)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1249, in _get_value
+    loc = self.index.get_loc(label)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Q_No'
+Global error in process_omr: 'Q_No'
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Q_No'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\main.py", line 60, in process_omr
+    q_num = str(row['Q_No'])
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1133, in __getitem__
+    return self._get_value(key)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1249, in _get_value
+    loc = self.index.get_loc(label)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Q_No'
+Global error in process_omr: 'Q_No'
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Q_No'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\main.py", line 60, in process_omr
+    q_num = str(row['Q_No'])
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1133, in __getitem__
+    return self._get_value(key)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1249, in _get_value
+    loc = self.index.get_loc(label)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Q_No'
+Global error in process_omr: 'Q_No'
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Q_No'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\main.py", line 60, in process_omr
+    q_num = str(row['Q_No'])
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1133, in __getitem__
+    return self._get_value(key)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1249, in _get_value
+    loc = self.index.get_loc(label)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Q_No'
+Global error in process_omr: 'Q_No'
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Q_No'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\main.py", line 60, in process_omr
+    q_num = str(row['Q_No'])
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1133, in __getitem__
+    return self._get_value(key)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1249, in _get_value
+    loc = self.index.get_loc(label)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Q_No'
+Global error in process_omr: 'Q_No'
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Q_No'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\main.py", line 62, in process_omr
+    q_num = str(row['Q_No'])
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1133, in __getitem__
+    return self._get_value(key)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1249, in _get_value
+    loc = self.index.get_loc(label)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Q_No'
+Global error in process_omr: 'Q_No'
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Q_No'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\main.py", line 62, in process_omr
+    q_num = str(row['Q_No'])
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1133, in __getitem__
+    return self._get_value(key)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1249, in _get_value
+    loc = self.index.get_loc(label)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Q_No'
+CSV Columns: ['Unnamed: 0', 'Unnamed: 1', 'Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4', 'Unnamed: 5']
+First Row: {'Unnamed: 0': nan, 'Unnamed: 1': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan}
+Global error in process_omr: 'Q_No'
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Q_No'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\main.py", line 67, in process_omr
+    q_num = str(row['Q_No'])
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1133, in __getitem__
+    return self._get_value(key)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\series.py", line 1249, in _get_value
+    loc = self.index.get_loc(label)
+  File "C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\venv\lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Q_No'
+CSV Columns: ['Q_No', 'Section', 'Option_A_Score', 'Option_B_Score', 'Option_C_Score', 'Option_D_Score']
+First Row: {'Q_No': 1, 'Section': 1, 'Option_A_Score': 0, 'Option_B_Score': 0, 'Option_C_Score': 4, 'Option_D_Score': 0}
+CSV Columns: ['Q_No', 'Section', 'Option_A_Score', 'Option_B_Score', 'Option_C_Score', 'Option_D_Score']
+First Row: {'Q_No': 1, 'Section': 1, 'Option_A_Score': 0, 'Option_B_Score': 0, 'Option_C_Score': 4, 'Option_D_Score': 0}
+CSV Columns: ['Q_No', 'Section', 'Option_A_Score', 'Option_B_Score', 'Option_C_Score', 'Option_D_Score']
+First Row: {'Q_No': 1, 'Section': 1, 'Option_A_Score': 0, 'Option_B_Score': 0, 'Option_C_Score': 4, 'Option_D_Score': 0}

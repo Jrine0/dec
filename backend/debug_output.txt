@@ -1,0 +1,40 @@
+Loading key from C:\Users\jitin\Desktop\Desk\drive\Documents\omr\sample_key.csv...
+Key loaded.
+
+Processing sample 1.pdf...
+  Converted to 1 images.
+  Processing page 1...
+  [DEBUG] find_corners: Found 66 contours
+  [DEBUG] find_corners: Found 4 potential markers. Areas: [475836.5, 348347.5, 78895.0, 30298.0]
+  [DEBUG] extract_answers: Image shape (544, 877)
+  [DEBUG] extract_answers: Found 1 total contours
+  [DEBUG] extract_answers: Filtered down to 0 potential bubbles
+  [DEBUG] Sample rejected sizes (w, h, ar): [(877, 544, 1.6121323529411764)]
+  Roll No: 4141
+  Answers Detected: 0
+  Total Score: 0
+  Sample Details:
+    Q1: Selected [] -> Score 0 (unanswered)
+    Q2: Selected [] -> Score 0 (unanswered)
+    Q3: Selected [] -> Score 0 (unanswered)
+    Q4: Selected [] -> Score 0 (unanswered)
+    Q5: Selected [] -> Score 0 (unanswered)
+
+Processing sample 3.pdf...
+  Converted to 1 images.
+  Processing page 1...
+  [DEBUG] find_corners: Found 768 contours
+  [DEBUG] find_corners: Found 4 potential markers. Areas: [461276.0, 75198.5, 28960.5, 28911.0]
+  [DEBUG] extract_answers: Image shape (546, 851)
+  [DEBUG] extract_answers: Found 1 total contours
+  [DEBUG] extract_answers: Filtered down to 0 potential bubbles
+  [DEBUG] Sample rejected sizes (w, h, ar): [(851, 546, 1.5586080586080586)]
+  Roll No: 4141
+  Answers Detected: 0
+  Total Score: 0
+  Sample Details:
+    Q1: Selected [] -> Score 0 (unanswered)
+    Q2: Selected [] -> Score 0 (unanswered)
+    Q3: Selected [] -> Score 0 (unanswered)
+    Q4: Selected [] -> Score 0 (unanswered)
+    Q5: Selected [] -> Score 0 (unanswered)
