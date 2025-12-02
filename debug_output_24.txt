@@ -1,0 +1,11 @@
+Processing c:/Users/jitin/Desktop/Desk/drive/Documents/omr/OMR_SRS/image (13).tif...
+DEBUG: process_sheet called
+DEBUG: Corners found: 4
+DEBUG: Gray stats: min=0, max=255, mean=232.0455617317476
+DEBUG: Processing Answer ROI at x=56, y=1399, w=875, h=261
+DEBUG: Processing Answer ROI at x=62, y=1146, w=872, h=161
+DEBUG: Processing Center Code ROI
+DEBUG: Processing Roll No ROI
+DEBUG: Processing Set ROI
+DEBUG: Processing Student Name ROI
+Exception: argument of type 'NoneType' is not iterable

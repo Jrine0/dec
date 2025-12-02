@@ -133,15 +133,30 @@ def process_omr(answer_key: UploadFile = File(...)):
                          print(f"Error processing {filename}: {extraction_result['error']}")
                          continue
                          
-                     student_answers = extraction_result["answers"]
-                     roll_no = extraction_result["roll_no"]
+                     student_answers = extraction_result.get("answers", {})
+                     roll_no = extraction_result.get("roll_no", "")
+                     center_code = extraction_result.get("center_code", "")
+                     set_code = extraction_result.get("set", "")
+                     student_name = extraction_result.get("student_name", "")
                      
                      # Score
                      total_score, details = scorer.calculate_score(student_answers, key_data)
                      
+                     # Format Marks string (e.g. "1:A 2:B ...")
+                     marks_str = ""
+                     sorted_qs = sorted(student_answers.keys(), key=lambda x: int(x))
+                     for q in sorted_qs:
+                         ans = "".join(student_answers[q])
+                         marks_str += f"{q}:{ans} "
+                     marks_str = marks_str.strip()
+
                      results.append({
                          "filename": filename,
+                         "center_code": center_code,
                          "roll_no": roll_no,
+                         "set": set_code,
+                         "student_name": student_name,
+                         "marks": marks_str,
                          "total_score": total_score,
                          "details": details
                      })
@@ -161,13 +176,18 @@ def process_omr(answer_key: UploadFile = File(...)):
             for r in results:
                 row = {
                     "Filename": r["filename"],
-                    "Roll No": r["roll_no"],
+                    "Center code": r["center_code"],
+                    "Roll no": r["roll_no"],
+                    "Set": r["set"],
+                    "Student name": r["student_name"],
+                    "Marks": r["marks"],
                     "Total Score": r["total_score"]
                 }
-                # Add per-question details if needed, or just summary
                 csv_data.append(row)
                 
-            pd.DataFrame(csv_data).to_csv(output_csv, index=False)
+            # Define column order
+            cols = ["Filename", "Center code", "Roll no", "Set", "Student name", "Marks", "Total Score"]
+            pd.DataFrame(csv_data).to_csv(output_csv, index=False, columns=cols)
             return {"message": "Processing complete", "results_file": output_csv, "data": results}
         
         return {"message": "No results generated", "status": "failed"}

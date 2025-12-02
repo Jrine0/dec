@@ -1,0 +1,20 @@
+Starting script...
+Imports done.
+Importing OMREngine...
+OMREngine imported.
+Inside visualize_processing...
+Processing c:/Users/jitin/Desktop/Desk/drive/Documents/omr/OMR_SRS/image (13).tif...
+Warped Shape: (1660, 2174, 3)
+Contours on Thresh: 610
+Bubbles on Thresh (>30px): 122
+Bubbles in Bottom Half (>1000px): 1
+Avg Area of Bottom Bubbles: 1735.50
+Visualizing Answer Grouping...
+Avg W: 53.00, Col Gap Thresh: 159.00
+X-coords (first 50): [1096]
+Max X: 1096
+Image Width: 2480
+Gaps (first 50): []
+Large Gaps (>avg_w): []
+Detected 1 columns.
+Saved debug_grouping.jpg

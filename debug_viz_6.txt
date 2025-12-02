@@ -1,0 +1,19 @@
+Starting script...
+Imports done.
+Importing OMREngine...
+OMREngine imported.
+Inside visualize_processing...
+Processing c:/Users/jitin/Desktop/Desk/drive/Documents/omr/OMR_SRS/image (13).tif...
+Contours on Thresh: 610
+Bubbles on Thresh (>30px): 565
+Bubbles in Bottom Half (>1000px): 390
+Avg Area of Bottom Bubbles: 1398.41
+Visualizing Answer Grouping...
+Avg W: 41.18, Col Gap Thresh: 123.53
+X-coords (first 50): [0, 56, 62, 65, 67, 68, 70, 95, 96, 97, 98, 108, 113, 114, 115, 122, 130, 132, 135, 136, 151, 152, 154, 157, 167, 169, 171, 173, 177, 180, 184, 187, 191, 197, 203, 206, 206, 221, 225, 228, 230, 236, 242, 246, 256, 258, 259, 267, 276, 278]
+Max X: 2158
+Image Width: 2480
+Gaps (first 50): [56, 6, 3, 2, 1, 2, 25, 1, 1, 1, 10, 5, 1, 1, 7, 8, 2, 3, 1, 15, 1, 2, 3, 10, 2, 2, 2, 4, 3, 4, 3, 4, 6, 6, 3, 0, 15, 4, 3, 2, 6, 6, 4, 10, 2, 1, 8, 9, 2, 4]
+Large Gaps (>avg_w): [56, 201]
+Detected 2 columns.
+Saved debug_grouping.jpg

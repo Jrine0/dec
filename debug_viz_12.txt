@@ -1,0 +1,26 @@
+Starting script...
+Imports done.
+Importing OMREngine...
+OMREngine imported.
+Inside visualize_processing...
+Processing c:/Users/jitin/Desktop/Desk/drive/Documents/omr/OMR_SRS/image (13).tif...
+Warped Shape: (1660, 2174, 3)
+Contours on Thresh: 610
+Bubbles on Thresh (>30px): 408
+Bubbles in Bottom Half (>1000px): 239
+Avg Area of Bottom Bubbles: 1332.00
+Visualizing Answer Grouping...
+Avg W: 51.26, Col Gap Thresh: 153.78
+X-coords (first 50): [0, 925, 937, 950, 963, 976, 982, 989, 995, 1003, 1009, 1017, 1022, 1032, 1036, 1040, 1047, 1051, 1053, 1063, 1065, 1067, 1079, 1080, 1082, 1096, 1096, 1097, 1097, 1112, 1112, 1112, 1126, 1127, 1129, 1141, 1144, 1146, 1154, 1157, 1160, 1163, 1170, 1173, 1177, 1185, 1190, 1194, 1201, 1206]
+Max X: 2120
+Image Width: 2480
+Gaps (first 50): [925, 12, 13, 13, 13, 6, 7, 6, 8, 6, 8, 5, 10, 4, 4, 7, 4, 2, 10, 2, 2, 12, 1, 2, 14, 0, 1, 0, 15, 0, 0, 14, 1, 2, 12, 3, 2, 8, 3, 3, 3, 7, 3, 4, 8, 5, 4, 7, 5, 7]
+Large Gaps (>avg_w): [925]
+Detected 2 columns.
+Force splitting into 4 columns for visualization
+Row Gap Thresh: 22.99
+Column 0 has 1 rows.
+Column 1 has 10 rows.
+Column 2 has 13 rows.
+Column 3 has 13 rows.
+Saved debug_grouping.jpg

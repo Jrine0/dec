@@ -1,0 +1,375 @@
+Processing c:/Users/jitin/Desktop/Desk/drive/Documents/omr/OMR_SRS/image (13).tif...
+DEBUG: process_sheet called
+DEBUG: Corners found: 4
+DEBUG: Gray stats: min=0, max=255, mean=232.0455617317476
+DEBUG: Edged non-zero pixels: 763810 / 3608840 (21.16%)
+DEBUG: Image size: 2174x1660
+DEBUG: Total contours found: 493
+DEBUG: Max contour area: 269073.5
+DEBUG: Rejected: w=47, h=14, ar=3.36, circ=0.25
+DEBUG: Rejected: w=41, h=14, ar=2.93, circ=0.24
+DEBUG: Rejected: w=76, h=14, ar=5.43, circ=0.17
+DEBUG: Rejected: w=45, h=14, ar=3.21, circ=0.23
+DEBUG: Rejected: w=40, h=18, ar=2.22, circ=0.23
+DEBUG: Rejected: w=87, h=18, ar=4.83, circ=0.12
+DEBUG: Rejected: w=55, h=18, ar=3.06, circ=0.17
+DEBUG: Rejected: w=76, h=14, ar=5.43, circ=0.16
+DEBUG: Rejected: w=32, h=14, ar=2.29, circ=0.35
+DEBUG: Rejected: w=68, h=18, ar=3.78, circ=0.16
+DEBUG: Rejected: w=38, h=18, ar=2.11, circ=0.32
+DEBUG: Rejected: w=61, h=18, ar=3.39, circ=0.20
+DEBUG: Rejected: w=51, h=18, ar=2.83, circ=0.22
+DEBUG: Rejected: w=67, h=19, ar=3.53, circ=0.16
+DEBUG: Rejected: w=30, h=14, ar=2.14, circ=0.20
+DEBUG: Rejected: w=31, h=15, ar=2.07, circ=0.33
+DEBUG: Rejected: w=121, h=19, ar=6.37, circ=0.11
+DEBUG: Rejected: w=37, h=15, ar=2.47, circ=0.26
+DEBUG: Rejected: w=70, h=19, ar=3.68, circ=0.16
+DEBUG: Rejected: w=40, h=19, ar=2.11, circ=0.22
+DEBUG: Rejected: w=63, h=19, ar=3.32, circ=0.14
+DEBUG: Rejected: w=39, h=19, ar=2.05, circ=0.31
+DEBUG: Rejected: w=57, h=19, ar=3.00, circ=0.21
+DEBUG: Rejected: w=53, h=18, ar=2.94, circ=0.19
+DEBUG: Rejected: w=60, h=18, ar=3.33, circ=0.17
+DEBUG: Rejected: w=42, h=15, ar=2.80, circ=0.25
+DEBUG: Rejected: w=72, h=21, ar=3.43, circ=0.12
+DEBUG: Rejected: w=54, h=19, ar=2.84, circ=0.20
+DEBUG: Rejected: w=76, h=23, ar=3.30, circ=0.18
+DEBUG: Rejected: w=877, h=262, ar=3.35, circ=0.14
+DEBUG: Rejected: w=873, h=163, ar=5.36, circ=0.41
+DEBUG: Rejected: w=360, h=861, ar=0.42, circ=0.56
+DEBUG: Rejected: w=33, h=15, ar=2.20, circ=0.64
+DEBUG: Potential bubbles found: 445
+DEBUG: Clusters found: 324
+DEBUG: Cluster 0: 1 bubbles, approx 1x1
+DEBUG: Cluster 1: 1 bubbles, approx 1x1
+DEBUG: Cluster 2: 7 bubbles, approx 3x2
+DEBUG: Cluster 3: 16 bubbles, approx 4x4
+DEBUG: Cluster 4: 1 bubbles, approx 1x1
+DEBUG: Cluster 5: 6 bubbles, approx 6x1
+DEBUG: Cluster 6: 6 bubbles, approx 6x1
+DEBUG: Cluster 7: 6 bubbles, approx 6x1
+DEBUG: Cluster 8: 7 bubbles, approx 7x1
+DEBUG: Cluster 9: 7 bubbles, approx 7x1
+DEBUG: Cluster 10: 7 bubbles, approx 7x1
+DEBUG: Cluster 11: 3 bubbles, approx 3x1
+DEBUG: Cluster 12: 3 bubbles, approx 3x1
+DEBUG: Cluster 13: 3 bubbles, approx 3x1
+DEBUG: Cluster 14: 4 bubbles, approx 4x1
+DEBUG: Cluster 15: 3 bubbles, approx 3x1
+DEBUG: Cluster 16: 3 bubbles, approx 3x1
+DEBUG: Cluster 17: 5 bubbles, approx 5x1
+DEBUG: Cluster 18: 5 bubbles, approx 5x1
+DEBUG: Cluster 19: 5 bubbles, approx 5x1
+DEBUG: Cluster 20: 5 bubbles, approx 5x1
+DEBUG: Cluster 21: 5 bubbles, approx 5x1
+DEBUG: Cluster 22: 6 bubbles, approx 6x1
+DEBUG: Cluster 23: 1 bubbles, approx 1x1
+DEBUG: Cluster 24: 3 bubbles, approx 1x3
+DEBUG: Cluster 25: 2 bubbles, approx 1x2
+DEBUG: Cluster 26: 1 bubbles, approx 1x1
+DEBUG: Cluster 27: 1 bubbles, approx 1x1
+DEBUG: Cluster 28: 1 bubbles, approx 1x1
+DEBUG: Cluster 29: 1 bubbles, approx 1x1
+DEBUG: Cluster 30: 1 bubbles, approx 1x1
+DEBUG: Cluster 31: 1 bubbles, approx 1x1
+DEBUG: Cluster 32: 1 bubbles, approx 1x1
+DEBUG: Cluster 33: 4 bubbles, approx 2x2
+DEBUG: Cluster 34: 1 bubbles, approx 1x1
+DEBUG: Cluster 35: 1 bubbles, approx 1x1
+DEBUG: Cluster 36: 3 bubbles, approx 3x1
+DEBUG: Cluster 37: 1 bubbles, approx 1x1
+DEBUG: Cluster 38: 1 bubbles, approx 1x1
+DEBUG: Cluster 39: 1 bubbles, approx 1x1
+DEBUG: Cluster 40: 1 bubbles, approx 1x1
+DEBUG: Cluster 41: 1 bubbles, approx 1x1
+DEBUG: Cluster 42: 1 bubbles, approx 1x1
+DEBUG: Cluster 43: 1 bubbles, approx 1x1
+DEBUG: Cluster 44: 1 bubbles, approx 1x1
+DEBUG: Cluster 45: 1 bubbles, approx 1x1
+DEBUG: Cluster 46: 1 bubbles, approx 1x1
+DEBUG: Cluster 47: 1 bubbles, approx 1x1
+DEBUG: Cluster 48: 1 bubbles, approx 1x1
+DEBUG: Cluster 49: 1 bubbles, approx 1x1
+DEBUG: Cluster 50: 1 bubbles, approx 1x1
+DEBUG: Cluster 51: 4 bubbles, approx 2x2
+DEBUG: Cluster 52: 1 bubbles, approx 1x1
+DEBUG: Cluster 53: 1 bubbles, approx 1x1
+DEBUG: Cluster 54: 1 bubbles, approx 1x1
+DEBUG: Cluster 55: 1 bubbles, approx 1x1
+DEBUG: Cluster 56: 1 bubbles, approx 1x1
+DEBUG: Cluster 57: 1 bubbles, approx 1x1
+DEBUG: Cluster 58: 1 bubbles, approx 1x1
+DEBUG: Cluster 59: 1 bubbles, approx 1x1
+DEBUG: Cluster 60: 1 bubbles, approx 1x1
+DEBUG: Cluster 61: 1 bubbles, approx 1x1
+DEBUG: Cluster 62: 1 bubbles, approx 1x1
+DEBUG: Cluster 63: 1 bubbles, approx 1x1
+DEBUG: Cluster 64: 1 bubbles, approx 1x1
+DEBUG: Cluster 65: 1 bubbles, approx 1x1
+DEBUG: Cluster 66: 1 bubbles, approx 1x1
+DEBUG: Cluster 67: 1 bubbles, approx 1x1
+DEBUG: Cluster 68: 1 bubbles, approx 1x1
+DEBUG: Cluster 69: 1 bubbles, approx 1x1
+DEBUG: Cluster 70: 1 bubbles, approx 1x1
+DEBUG: Cluster 71: 1 bubbles, approx 1x1
+DEBUG: Cluster 72: 1 bubbles, approx 1x1
+DEBUG: Cluster 73: 1 bubbles, approx 1x1
+DEBUG: Cluster 74: 1 bubbles, approx 1x1
+DEBUG: Cluster 75: 1 bubbles, approx 1x1
+DEBUG: Cluster 76: 1 bubbles, approx 1x1
+DEBUG: Cluster 77: 1 bubbles, approx 1x1
+DEBUG: Cluster 78: 1 bubbles, approx 1x1
+DEBUG: Cluster 79: 1 bubbles, approx 1x1
+DEBUG: Cluster 80: 1 bubbles, approx 1x1
+DEBUG: Cluster 81: 1 bubbles, approx 1x1
+DEBUG: Cluster 82: 1 bubbles, approx 1x1
+DEBUG: Cluster 83: 4 bubbles, approx 2x2
+DEBUG: Cluster 84: 1 bubbles, approx 1x1
+DEBUG: Cluster 85: 1 bubbles, approx 1x1
+DEBUG: Cluster 86: 1 bubbles, approx 1x1
+DEBUG: Cluster 87: 1 bubbles, approx 1x1
+DEBUG: Cluster 88: 1 bubbles, approx 1x1
+DEBUG: Cluster 89: 1 bubbles, approx 1x1
+DEBUG: Cluster 90: 1 bubbles, approx 1x1
+DEBUG: Cluster 91: 1 bubbles, approx 1x1
+DEBUG: Cluster 92: 1 bubbles, approx 1x1
+DEBUG: Cluster 93: 1 bubbles, approx 1x1
+DEBUG: Cluster 94: 1 bubbles, approx 1x1
+DEBUG: Cluster 95: 1 bubbles, approx 1x1
+DEBUG: Cluster 96: 1 bubbles, approx 1x1
+DEBUG: Cluster 97: 1 bubbles, approx 1x1
+DEBUG: Cluster 98: 1 bubbles, approx 1x1
+DEBUG: Cluster 99: 1 bubbles, approx 1x1
+DEBUG: Cluster 100: 1 bubbles, approx 1x1
+DEBUG: Cluster 101: 1 bubbles, approx 1x1
+DEBUG: Cluster 102: 1 bubbles, approx 1x1
+DEBUG: Cluster 103: 1 bubbles, approx 1x1
+DEBUG: Cluster 104: 1 bubbles, approx 1x1
+DEBUG: Cluster 105: 1 bubbles, approx 1x1
+DEBUG: Cluster 106: 1 bubbles, approx 1x1
+DEBUG: Cluster 107: 1 bubbles, approx 1x1
+DEBUG: Cluster 108: 1 bubbles, approx 1x1
+DEBUG: Cluster 109: 1 bubbles, approx 1x1
+DEBUG: Cluster 110: 1 bubbles, approx 1x1
+DEBUG: Cluster 111: 1 bubbles, approx 1x1
+DEBUG: Cluster 112: 1 bubbles, approx 1x1
+DEBUG: Cluster 113: 1 bubbles, approx 1x1
+DEBUG: Cluster 114: 1 bubbles, approx 1x1
+DEBUG: Cluster 115: 1 bubbles, approx 1x1
+DEBUG: Cluster 116: 1 bubbles, approx 1x1
+DEBUG: Cluster 117: 1 bubbles, approx 1x1
+DEBUG: Cluster 118: 1 bubbles, approx 1x1
+DEBUG: Cluster 119: 1 bubbles, approx 1x1
+DEBUG: Cluster 120: 1 bubbles, approx 1x1
+DEBUG: Cluster 121: 1 bubbles, approx 1x1
+DEBUG: Cluster 122: 1 bubbles, approx 1x1
+DEBUG: Cluster 123: 1 bubbles, approx 1x1
+DEBUG: Cluster 124: 1 bubbles, approx 1x1
+DEBUG: Cluster 125: 1 bubbles, approx 1x1
+DEBUG: Cluster 126: 1 bubbles, approx 1x1
+DEBUG: Cluster 127: 1 bubbles, approx 1x1
+DEBUG: Cluster 128: 1 bubbles, approx 1x1
+DEBUG: Cluster 129: 1 bubbles, approx 1x1
+DEBUG: Cluster 130: 1 bubbles, approx 1x1
+DEBUG: Cluster 131: 1 bubbles, approx 1x1
+DEBUG: Cluster 132: 1 bubbles, approx 1x1
+DEBUG: Cluster 133: 1 bubbles, approx 1x1
+DEBUG: Cluster 134: 2 bubbles, approx 1x2
+DEBUG: Cluster 135: 1 bubbles, approx 1x1
+DEBUG: Cluster 136: 1 bubbles, approx 1x1
+DEBUG: Cluster 137: 1 bubbles, approx 1x1
+DEBUG: Cluster 138: 1 bubbles, approx 1x1
+DEBUG: Cluster 139: 1 bubbles, approx 1x1
+DEBUG: Cluster 140: 1 bubbles, approx 1x1
+DEBUG: Cluster 141: 1 bubbles, approx 1x1
+DEBUG: Cluster 142: 1 bubbles, approx 1x1
+DEBUG: Cluster 143: 1 bubbles, approx 1x1
+DEBUG: Cluster 144: 1 bubbles, approx 1x1
+DEBUG: Cluster 145: 1 bubbles, approx 1x1
+DEBUG: Cluster 146: 1 bubbles, approx 1x1
+DEBUG: Cluster 147: 1 bubbles, approx 1x1
+DEBUG: Cluster 148: 1 bubbles, approx 1x1
+DEBUG: Cluster 149: 1 bubbles, approx 1x1
+DEBUG: Cluster 150: 1 bubbles, approx 1x1
+DEBUG: Cluster 151: 1 bubbles, approx 1x1
+DEBUG: Cluster 152: 1 bubbles, approx 1x1
+DEBUG: Cluster 153: 1 bubbles, approx 1x1
+DEBUG: Cluster 154: 1 bubbles, approx 1x1
+DEBUG: Cluster 155: 1 bubbles, approx 1x1
+DEBUG: Cluster 156: 1 bubbles, approx 1x1
+DEBUG: Cluster 157: 1 bubbles, approx 1x1
+DEBUG: Cluster 158: 1 bubbles, approx 1x1
+DEBUG: Cluster 159: 1 bubbles, approx 1x1
+DEBUG: Cluster 160: 1 bubbles, approx 1x1
+DEBUG: Cluster 161: 1 bubbles, approx 1x1
+DEBUG: Cluster 162: 1 bubbles, approx 1x1
+DEBUG: Cluster 163: 1 bubbles, approx 1x1
+DEBUG: Cluster 164: 1 bubbles, approx 1x1
+DEBUG: Cluster 165: 1 bubbles, approx 1x1
+DEBUG: Cluster 166: 1 bubbles, approx 1x1
+DEBUG: Cluster 167: 1 bubbles, approx 1x1
+DEBUG: Cluster 168: 1 bubbles, approx 1x1
+DEBUG: Cluster 169: 1 bubbles, approx 1x1
+DEBUG: Cluster 170: 1 bubbles, approx 1x1
+DEBUG: Cluster 171: 1 bubbles, approx 1x1
+DEBUG: Cluster 172: 1 bubbles, approx 1x1
+DEBUG: Cluster 173: 1 bubbles, approx 1x1
+DEBUG: Cluster 174: 1 bubbles, approx 1x1
+DEBUG: Cluster 175: 1 bubbles, approx 1x1
+DEBUG: Cluster 176: 1 bubbles, approx 1x1
+DEBUG: Cluster 177: 1 bubbles, approx 1x1
+DEBUG: Cluster 178: 1 bubbles, approx 1x1
+DEBUG: Cluster 179: 1 bubbles, approx 1x1
+DEBUG: Cluster 180: 1 bubbles, approx 1x1
+DEBUG: Cluster 181: 1 bubbles, approx 1x1
+DEBUG: Cluster 182: 1 bubbles, approx 1x1
+DEBUG: Cluster 183: 1 bubbles, approx 1x1
+DEBUG: Cluster 184: 1 bubbles, approx 1x1
+DEBUG: Cluster 185: 1 bubbles, approx 1x1
+DEBUG: Cluster 186: 1 bubbles, approx 1x1
+DEBUG: Cluster 187: 1 bubbles, approx 1x1
+DEBUG: Cluster 188: 1 bubbles, approx 1x1
+DEBUG: Cluster 189: 1 bubbles, approx 1x1
+DEBUG: Cluster 190: 1 bubbles, approx 1x1
+DEBUG: Cluster 191: 1 bubbles, approx 1x1
+DEBUG: Cluster 192: 1 bubbles, approx 1x1
+DEBUG: Cluster 193: 1 bubbles, approx 1x1
+DEBUG: Cluster 194: 1 bubbles, approx 1x1
+DEBUG: Cluster 195: 1 bubbles, approx 1x1
+DEBUG: Cluster 196: 1 bubbles, approx 1x1
+DEBUG: Cluster 197: 1 bubbles, approx 1x1
+DEBUG: Cluster 198: 1 bubbles, approx 1x1
+DEBUG: Cluster 199: 1 bubbles, approx 1x1
+DEBUG: Cluster 200: 1 bubbles, approx 1x1
+DEBUG: Cluster 201: 1 bubbles, approx 1x1
+DEBUG: Cluster 202: 1 bubbles, approx 1x1
+DEBUG: Cluster 203: 1 bubbles, approx 1x1
+DEBUG: Cluster 204: 1 bubbles, approx 1x1
+DEBUG: Cluster 205: 1 bubbles, approx 1x1
+DEBUG: Cluster 206: 1 bubbles, approx 1x1
+DEBUG: Cluster 207: 1 bubbles, approx 1x1
+DEBUG: Cluster 208: 1 bubbles, approx 1x1
+DEBUG: Cluster 209: 1 bubbles, approx 1x1
+DEBUG: Cluster 210: 1 bubbles, approx 1x1
+DEBUG: Cluster 211: 1 bubbles, approx 1x1
+DEBUG: Cluster 212: 1 bubbles, approx 1x1
+DEBUG: Cluster 213: 1 bubbles, approx 1x1
+DEBUG: Cluster 214: 1 bubbles, approx 1x1
+DEBUG: Cluster 215: 1 bubbles, approx 1x1
+DEBUG: Cluster 216: 1 bubbles, approx 1x1
+DEBUG: Cluster 217: 1 bubbles, approx 1x1
+DEBUG: Cluster 218: 1 bubbles, approx 1x1
+DEBUG: Cluster 219: 1 bubbles, approx 1x1
+DEBUG: Cluster 220: 1 bubbles, approx 1x1
+DEBUG: Cluster 221: 1 bubbles, approx 1x1
+DEBUG: Cluster 222: 1 bubbles, approx 1x1
+DEBUG: Cluster 223: 1 bubbles, approx 1x1
+DEBUG: Cluster 224: 1 bubbles, approx 1x1
+DEBUG: Cluster 225: 1 bubbles, approx 1x1
+DEBUG: Cluster 226: 1 bubbles, approx 1x1
+DEBUG: Cluster 227: 1 bubbles, approx 1x1
+DEBUG: Cluster 228: 1 bubbles, approx 1x1
+DEBUG: Cluster 229: 1 bubbles, approx 1x1
+DEBUG: Cluster 230: 1 bubbles, approx 1x1
+DEBUG: Cluster 231: 1 bubbles, approx 1x1
+DEBUG: Cluster 232: 1 bubbles, approx 1x1
+DEBUG: Cluster 233: 1 bubbles, approx 1x1
+DEBUG: Cluster 234: 1 bubbles, approx 1x1
+DEBUG: Cluster 235: 1 bubbles, approx 1x1
+DEBUG: Cluster 236: 1 bubbles, approx 1x1
+DEBUG: Cluster 237: 1 bubbles, approx 1x1
+DEBUG: Cluster 238: 1 bubbles, approx 1x1
+DEBUG: Cluster 239: 1 bubbles, approx 1x1
+DEBUG: Cluster 240: 1 bubbles, approx 1x1
+DEBUG: Cluster 241: 1 bubbles, approx 1x1
+DEBUG: Cluster 242: 1 bubbles, approx 1x1
+DEBUG: Cluster 243: 1 bubbles, approx 1x1
+DEBUG: Cluster 244: 1 bubbles, approx 1x1
+DEBUG: Cluster 245: 1 bubbles, approx 1x1
+DEBUG: Cluster 246: 1 bubbles, approx 1x1
+DEBUG: Cluster 247: 1 bubbles, approx 1x1
+DEBUG: Cluster 248: 1 bubbles, approx 1x1
+DEBUG: Cluster 249: 1 bubbles, approx 1x1
+DEBUG: Cluster 250: 1 bubbles, approx 1x1
+DEBUG: Cluster 251: 1 bubbles, approx 1x1
+DEBUG: Cluster 252: 1 bubbles, approx 1x1
+DEBUG: Cluster 253: 2 bubbles, approx 1x2
+DEBUG: Cluster 254: 1 bubbles, approx 1x1
+DEBUG: Cluster 255: 1 bubbles, approx 1x1
+DEBUG: Cluster 256: 1 bubbles, approx 1x1
+DEBUG: Cluster 257: 1 bubbles, approx 1x1
+DEBUG: Cluster 258: 1 bubbles, approx 1x1
+DEBUG: Cluster 259: 1 bubbles, approx 1x1
+DEBUG: Cluster 260: 1 bubbles, approx 1x1
+DEBUG: Cluster 261: 1 bubbles, approx 1x1
+DEBUG: Cluster 262: 1 bubbles, approx 1x1
+DEBUG: Cluster 263: 1 bubbles, approx 1x1
+DEBUG: Cluster 264: 1 bubbles, approx 1x1
+DEBUG: Cluster 265: 1 bubbles, approx 1x1
+DEBUG: Cluster 266: 1 bubbles, approx 1x1
+DEBUG: Cluster 267: 1 bubbles, approx 1x1
+DEBUG: Cluster 268: 1 bubbles, approx 1x1
+DEBUG: Cluster 269: 1 bubbles, approx 1x1
+DEBUG: Cluster 270: 1 bubbles, approx 1x1
+DEBUG: Cluster 271: 1 bubbles, approx 1x1
+DEBUG: Cluster 272: 1 bubbles, approx 1x1
+DEBUG: Cluster 273: 1 bubbles, approx 1x1
+DEBUG: Cluster 274: 1 bubbles, approx 1x1
+DEBUG: Cluster 275: 1 bubbles, approx 1x1
+DEBUG: Cluster 276: 1 bubbles, approx 1x1
+DEBUG: Cluster 277: 1 bubbles, approx 1x1
+DEBUG: Cluster 278: 2 bubbles, approx 2x1
+DEBUG: Cluster 279: 1 bubbles, approx 1x1
+DEBUG: Cluster 280: 1 bubbles, approx 1x1
+DEBUG: Cluster 281: 1 bubbles, approx 1x1
+DEBUG: Cluster 282: 1 bubbles, approx 1x1
+DEBUG: Cluster 283: 1 bubbles, approx 1x1
+DEBUG: Cluster 284: 1 bubbles, approx 1x1
+DEBUG: Cluster 285: 2 bubbles, approx 2x1
+DEBUG: Cluster 286: 1 bubbles, approx 1x1
+DEBUG: Cluster 287: 1 bubbles, approx 1x1
+DEBUG: Cluster 288: 1 bubbles, approx 1x1
+DEBUG: Cluster 289: 1 bubbles, approx 1x1
+DEBUG: Cluster 290: 1 bubbles, approx 1x1
+DEBUG: Cluster 291: 1 bubbles, approx 1x1
+DEBUG: Cluster 292: 1 bubbles, approx 1x1
+DEBUG: Cluster 293: 1 bubbles, approx 1x1
+DEBUG: Cluster 294: 1 bubbles, approx 1x1
+DEBUG: Cluster 295: 1 bubbles, approx 1x1
+DEBUG: Cluster 296: 1 bubbles, approx 1x1
+DEBUG: Cluster 297: 1 bubbles, approx 1x1
+DEBUG: Cluster 298: 1 bubbles, approx 1x1
+DEBUG: Cluster 299: 1 bubbles, approx 1x1
+DEBUG: Cluster 300: 1 bubbles, approx 1x1
+DEBUG: Cluster 301: 1 bubbles, approx 1x1
+DEBUG: Cluster 302: 6 bubbles, approx 1x6
+DEBUG: Cluster 303: 1 bubbles, approx 1x1
+DEBUG: Cluster 304: 1 bubbles, approx 1x1
+DEBUG: Cluster 305: 1 bubbles, approx 1x1
+DEBUG: Cluster 306: 1 bubbles, approx 1x1
+DEBUG: Cluster 307: 1 bubbles, approx 1x1
+DEBUG: Cluster 308: 1 bubbles, approx 1x1
+DEBUG: Cluster 309: 2 bubbles, approx 1x2
+DEBUG: Cluster 310: 1 bubbles, approx 1x1
+DEBUG: Cluster 311: 1 bubbles, approx 1x1
+DEBUG: Cluster 312: 1 bubbles, approx 1x1
+DEBUG: Cluster 313: 3 bubbles, approx 1x3
+DEBUG: Cluster 314: 1 bubbles, approx 1x1
+DEBUG: Cluster 315: 1 bubbles, approx 1x1
+DEBUG: Cluster 316: 1 bubbles, approx 1x1
+DEBUG: Cluster 317: 3 bubbles, approx 1x3
+DEBUG: Cluster 318: 1 bubbles, approx 1x1
+DEBUG: Cluster 319: 1 bubbles, approx 1x1
+DEBUG: Cluster 320: 2 bubbles, approx 1x2
+DEBUG: Cluster 321: 1 bubbles, approx 1x1
+DEBUG: Cluster 322: 1 bubbles, approx 1x1
+DEBUG: Cluster 323: 1 bubbles, approx 1x1
+
+--- Extraction Results ---
+Center Code: 
+Roll No: 
+Set: A
+Student Name: 
+Answers Found: 0
+First 5 Answers:

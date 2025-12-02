@@ -1,0 +1,39 @@
+Starting script...
+Imports done.
+Importing OMREngine...
+OMREngine imported.
+Inside visualize_processing...
+Processing c:/Users/jitin/Desktop/Desk/drive/Documents/omr/OMR_SRS/image (13).tif...
+Warped Shape: (1660, 2174, 3)
+Contours on Thresh: 610
+Left Side Bubbles (x<900, area>10): 169
+Avg Area Left: 5683.04
+Left Bubble 0: x=309, y=1650, w=7, h=5, area=17.0
+Left Bubble 1: x=0, y=1643, w=25, h=17, area=290.0
+Left Bubble 2: x=576, y=1633, w=13, h=10, area=59.0
+Left Bubble 3: x=556, y=1633, w=19, h=10, area=67.5
+Left Bubble 4: x=543, y=1633, w=10, h=10, area=33.5
+Left Bubble 5: x=529, y=1633, w=13, h=10, area=43.5
+Left Bubble 6: x=514, y=1633, w=12, h=10, area=63.0
+Left Bubble 7: x=485, y=1633, w=11, h=10, area=29.0
+Left Bubble 8: x=471, y=1633, w=13, h=10, area=62.0
+Left Bubble 9: x=351, y=1633, w=12, h=14, area=44.0
+Contours on Thresh: 610
+Bubbles on Thresh (>30px): 408
+Bubbles in Bottom Half (>1000px): 239
+Avg Area of Bottom Bubbles: 1332.00
+Visualizing Answer Grouping...
+Avg W: 51.26, Col Gap Thresh: 153.78
+X-coords (first 50): [0, 925, 937, 950, 963, 976, 982, 989, 995, 1003, 1009, 1017, 1022, 1032, 1036, 1040, 1047, 1051, 1053, 1063, 1065, 1067, 1079, 1080, 1082, 1096, 1096, 1097, 1097, 1112, 1112, 1112, 1126, 1127, 1129, 1141, 1144, 1146, 1154, 1157, 1160, 1163, 1170, 1173, 1177, 1185, 1190, 1194, 1201, 1206]
+Max X: 2120
+Image Width: 2480
+Gaps (first 50): [925, 12, 13, 13, 13, 6, 7, 6, 8, 6, 8, 5, 10, 4, 4, 7, 4, 2, 10, 2, 2, 12, 1, 2, 14, 0, 1, 0, 15, 0, 0, 14, 1, 2, 12, 3, 2, 8, 3, 3, 3, 7, 3, 4, 8, 5, 4, 7, 5, 7]
+Large Gaps (>avg_w): [925]
+Detected 2 columns.
+Found 2 X-clusters
+Cluster 0: Count=1, Avg X=0.0, Range=0-0
+Cluster 1: Count=238, Avg X=1541.5, Range=925-2120
+Row Gap Thresh: 22.99
+Column 0 has 1 rows.
+Column 1 has 13 rows.
+Saved debug_grouping.jpg

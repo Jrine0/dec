@@ -1,0 +1,16 @@
+Starting script...
+Imports done.
+Importing OMREngine...
+OMREngine imported.
+Inside visualize_processing...
+Processing c:/Users/jitin/Desktop/Desk/drive/Documents/omr/OMR_SRS/image (13).tif...
+Warped Shape: (1660, 2174, 3)
+Bubbles in Bottom Half (>1000px): 385
+Visualizing Answer Grouping...
+Main cluster range: 925-2158 (Count: 249)
+Row Gap Thresh: 30.36
+Column 0 has 13 rows.
+Column 1 has 13 rows.
+Column 2 has 13 rows.
+Column 3 has 13 rows.
+Saved debug_grouping.jpg

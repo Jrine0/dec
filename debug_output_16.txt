@@ -1,0 +1,17 @@
+Processing c:/Users/jitin/Desktop/Desk/drive/Documents/omr/OMR_SRS/image (13).tif...
+DEBUG: process_sheet called
+DEBUG: Corners found: 4
+DEBUG: Gray stats: min=0, max=255, mean=232.0455617317476
+DEBUG: Processing Center Code ROI
+DEBUG: Processing Roll No ROI
+DEBUG: Processing Set ROI
+DEBUG: Processing Student Name ROI
+DEBUG: Processing 3 answer bubbles from ROIs
+
+--- Extraction Results ---
+Center Code: ??
+Roll No: ??
+Set: D
+Student Name: AA     D   A    D  F    D      D AC    B              MC
+Answers Found: 0
+First 5 Answers:

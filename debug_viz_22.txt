@@ -1,0 +1,29 @@
+Starting script...
+Imports done.
+Importing OMREngine...
+OMREngine imported.
+Inside visualize_processing...
+Processing c:/Users/jitin/Desktop/Desk/drive/Documents/omr/OMR_SRS/image (13).tif...
+Using Canny for contour visualization
+Total contours found: 143
+Contour #0: Area=2426829.0, Rect=(x=225, y=1936, w=2013, h=1211)
+Contour #1: Area=1767178.0, Rect=(x=1081, y=293, w=1155, h=1540)
+Contour #2: Area=399195.0, Rect=(x=227, y=1335, w=806, h=498)
+Contour #3: Area=153278.0, Rect=(x=511, y=294, w=235, h=662)
+Contour #4: Area=153223.0, Rect=(x=227, y=294, w=233, h=662)
+Contour #5: Area=125334.0, Rect=(x=227, y=1060, w=747, h=170)
+Contour #6: Area=115321.5, Rect=(x=797, y=294, w=177, h=662)
+Contour #7: Area=109821.0, Rect=(x=225, y=3249, w=980, h=115)
+Contour #8: Area=1796.0, Rect=(x=1563, y=162, w=46, h=50)
+Contour #9: Area=1740.5, Rect=(x=147, y=1641, w=50, h=46)
+Contour #10: Area=1736.0, Rect=(x=2322, y=1639, w=49, h=47)
+Contour #11: Area=1730.0, Rect=(x=147, y=162, w=50, h=47)
+Contour #12: Area=1722.0, Rect=(x=2319, y=162, w=49, h=47)
+Contour #13: Area=1721.0, Rect=(x=145, y=3390, w=49, h=46)
+Contour #14: Area=1496.0, Rect=(x=1923, y=156, w=58, h=54)
+Contour #15: Area=1412.5, Rect=(x=1302, y=162, w=36, h=49)
+Contour #16: Area=1204.5, Rect=(x=749, y=163, w=36, h=49)
+Contour #17: Area=1200.0, Rect=(x=1616, y=162, w=35, h=49)
+Contour #18: Area=1183.0, Rect=(x=1072, y=163, w=35, h=49)
+Contour #19: Area=1116.0, Rect=(x=1903, y=112, w=56, h=45)
+Saved debug_all_contours.jpg

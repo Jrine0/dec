@@ -1,0 +1,24 @@
+Processing c:/Users/jitin/Desktop/Desk/drive/Documents/omr/OMR_SRS/image (13).tif...
+DEBUG: process_sheet called
+DEBUG: Corners found: 4
+DEBUG: Gray stats: min=0, max=255, mean=232.0455617317476
+DEBUG: Processing Answers ROI: 415,353,396,683
+DEBUG: Found 1 columns of questions
+DEBUG: Column has 8 rows
+DEBUG: Q1 Ratios: [0.0, 0.21, 0.21, 0.21, 0.09, 0.21]
+DEBUG: Q2 Ratios: [0.15, 0.72, 0.16, 0.14]
+DEBUG: Q3 Ratios: [0.16, 0.16, 0.17, 0.16]
+DEBUG: Q4 Ratios: [0.17, 0.17, 0.83, 0.18]
+DEBUG: Q5 Ratios: [0.18, 0.81, 0.17, 0.19, 0.17, 0.19, 0.17, 0.19]
+DEBUG: Processing Student Name ROI: 753,181,431,858
+
+--- Extraction Results ---
+Center Code: 
+Roll No: 
+Set: 
+Student Name: C  B
+Answers Found: 3
+First 5 Answers:
+  Q2: ['B']
+  Q4: ['C']
+  Q5: ['B']

@@ -1,0 +1,37 @@
+Processing c:/Users/jitin/Desktop/Desk/drive/Documents/omr/OMR_SRS/image (13).tif...
+DEBUG: process_sheet called
+DEBUG: Corners found: 4
+DEBUG: Gray stats: min=0, max=255, mean=232.0455617317476
+DEBUG: Processing Answer ROI at x=56, y=1399, w=875, h=261
+DEBUG: Processing Answer ROI at x=62, y=1146, w=872, h=161
+DEBUG: Processing Center Code ROI
+DEBUG: Processing Roll No ROI
+DEBUG: Processing Set ROI
+DEBUG: Processing Student Name ROI
+DEBUG: Found only 142 bubbles in ROIs. Searching bottom half...
+DEBUG: Found 437 bubbles in bottom half (Fallback)
+DEBUG: Found 2 columns of questions
+DEBUG: Force splitting into 4 columns using clustering
+DEBUG: Main cluster range: 925-2166 (Count: 296)
+DEBUG: Column has 16 rows
+DEBUG: Q1 Ratios: [0.22, 0.23]
+DEBUG: Q2 Ratios: [0.1, 0.1]
+DEBUG: Q3 Ratios: [0.14, 0.13]
+DEBUG: Q4 Ratios: [0.2, 0.2, 0.2]
+DEBUG: Q5 Ratios: [0.12, 0.12, 0.13]
+DEBUG: Column has 16 rows
+DEBUG: Column has 16 rows
+DEBUG: Column has 16 rows
+
+--- Extraction Results ---
+Center Code: ?0?002803?????
+Roll No: 343?200447451532100
+Set: D
+Student Name: AA     D   A    D  F    D      D AC    B              MC
+Answers Found: 20
+First 5 Answers:
+  Q6: ['A', 'B', 'C']
+  Q7: ['A', 'B', 'C']
+  Q9: ['C']
+  Q10: ['A']
+  Q16: ['A', 'B', 'C', 'D']

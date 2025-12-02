@@ -155,7 +155,6 @@ class OMREngine:
 
     def find_corners(self, thresh):
         contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-        print(f"  [DEBUG] find_corners: Found {len(contours)} contours")
         
         h, w = thresh.shape[:2]
         img_area = h * w
@@ -199,13 +198,10 @@ class OMREngine:
                 if poly_area > (img_area * 0.2): # Must cover at least 20% of image
                     best_corners = window
                     break
-                else:
-                    # print(f"  [DEBUG] find_corners: Rejected group with area {areas[0]} due to small polygon area {poly_area}")
-                    pass
         
         if not best_corners:
              # Fallback: Use full image if no consistent group found
-             print("  [DEBUG] find_corners: No consistent spread-out group found. Falling back to FULL IMAGE.")
+             print("DEBUG: find_corners: Fallback to FULL IMAGE", flush=True)
              return np.array([
                 [0, 0],
                 [w, 0],
@@ -224,10 +220,8 @@ class OMREngine:
                 cY = int(M["m01"] / M["m00"])
                 final_corners.append([cX, cY])
         
-        print(f"  [DEBUG] find_corners: Selected {len(final_corners)} markers. Areas: {[cv2.contourArea(c) for c in corners]}")
-        
         if len(final_corners) < 4:
-            print("  [DEBUG] find_corners: Could not find 4 markers. Falling back to full image.")
+            print("DEBUG: find_corners: Fallback (len < 4)", flush=True)
             return np.array([
                 [0, 0],
                 [w, 0],
@@ -330,6 +324,7 @@ class OMREngine:
         return ratios
 
     def process_sheet(self, image_or_path):
+        print("DEBUG: process_sheet called", flush=True)
         # 1. Load and Warp
         if isinstance(image_or_path, str):
             image = cv2.imread(image_or_path)
@@ -341,104 +336,430 @@ class OMREngine:
 
         # Use Otsu for corner detection (global)
         thresh = self.preprocess_image(image)
-        corners = self.find_corners(thresh)
+        fields = self.extract_fields(warped_thresh)
         
-        if len(corners) != 4:
-             return {"error": f"Found {len(corners)} corners, expected 4"}
-             
-        warped = self.four_point_transform(image, corners) 
-        
-        # Use Adaptive Threshold with large block size to handle uneven lighting
-        # Block size 201 is roughly 5x bubble size (40px), very robust
-        gray = cv2.cvtColor(warped, cv2.COLOR_BGR2GRAY)
-        blur = cv2.GaussianBlur(gray, (5, 5), 0)
-        warped_thresh = cv2.adaptiveThreshold(blur, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 201, 2)
+        return fields
 
+    def extract_fields(self, img):
+        # img is grayscale
+        
+        # 1. Edge Detection to find blocks
+        blurred = cv2.GaussianBlur(img, (5, 5), 0)
+        edged = cv2.Canny(blurred, 75, 200)
+        
+        cnts = cv2.findContours(edged, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+        cnts = cnts[0] if len(cnts) == 2 else cnts[1]
+        cnts = sorted(cnts, key=cv2.contourArea, reverse=True)
+        
         results = {
-            "roll_no": self.extract_roll_no(warped_thresh),
-            "answers": self.extract_answers(warped_thresh)
+            "center_code": "",
+            "roll_no": "",
+            "set": "",
+            "student_name": "",
+            "answers": {},
+            "marks": 0,
+            "total_marks": 0
         }
+        
+        if len(cnts) < 5:
+            print("DEBUG: Not enough contours found to identify all fields", flush=True)
+            return results
+
+        # 2. Identify ROIs based on Area and Position
+        # Expected Areas (approx):
+        # Answers: > 2,000,000 (Largest)
+        # Name: > 1,500,000 (2nd Largest)
+        # Top Blocks (Center, Roll, Set): ~100,000 - 200,000
+        
+        answer_contour = cnts[0]
+        name_contour = cnts[1]
+        
+        # Filter for top blocks
+        top_blocks = []
+        for c in cnts[2:]:
+            area = cv2.contourArea(c)
+            if 100000 < area < 200000:
+                top_blocks.append(c)
+        
+        # Sort top blocks left-to-right
+        top_blocks, _ = self.sort_contours(top_blocks, method="left-to-right")
+        
+        # We expect at least 3 blocks: Center Code, Roll No, Set
+        # But we might find more (e.g. instruction blocks). 
+        # Based on user input:
+        # Center Code is Left
+        # Roll No is Middle
+        # Set is Right (but left of Name)
+        
+        # Let's try to map them by index if we have exactly 3, or use heuristics
+        center_code_contour = None
+        roll_no_contour = None
+        set_contour = None
+        
+        if len(top_blocks) >= 3:
+             # Assuming the 3 required blocks are the ones we found
+             # We need to be careful about "instruction" blocks.
+             # User said: Pink#4(Center), Yellow#3(Roll), Red#6(Set)
+             # In sorted order (x-pos): Center < Roll < Set
+             
+             # Let's filter by Y position too? They should be roughly at the same height.
+             # But simply taking the first 3 sorted by X might work if they are the main blocks.
+             
+             # Refined strategy: Take the 3 largest from the "top_blocks" list?
+             # The user identified #3, #4, #6. 
+             # #2 (399k) and #5 (125k) were ignored. #5 is close in size to Set (#6 is 115k).
+             # Let's strictly use the user's identified areas if possible, or relative order.
+             
+             # Center Code (Leftmost)
+             center_code_contour = top_blocks[0]
+             
+             # Roll No (Middle)
+             if len(top_blocks) > 1:
+                 roll_no_contour = top_blocks[1]
+                 
+             # Set (Rightmost of the small blocks)
+             # Note: Set might be smaller or positioned differently.
+             # Let's look for the block that is to the right of Roll No.
+             if len(top_blocks) > 2:
+                 set_contour = top_blocks[2]
+        
+        # 3. Process ROIs
+        
+        # Answers
+        # Warp the Answer ROI to ensure it's straight
+        peri = cv2.arcLength(answer_contour, True)
+        approx = cv2.approxPolyDP(answer_contour, 0.02 * peri, True)
+        
+        if len(approx) == 4:
+             # Use the detected corners to warp
+             warped_answers = self.four_point_transform(img, approx.reshape(4, 2))
+             print(f"DEBUG: Warped Answer ROI", flush=True)
+             
+             # Now find bubbles in the warped ROI
+             roi_thresh = cv2.adaptiveThreshold(warped_answers, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 51, 5)
+             roi_cnts = self.get_contours(roi_thresh)
+             answer_bubbles = []
+             for c in roi_cnts:
+                 if cv2.contourArea(c) > 30:
+                     answer_bubbles.append(c) # Local coordinates
+             
+             if answer_bubbles:
+                  results["answers"] = self.process_answers_block(warped_answers, answer_bubbles)
+        else:
+             # Fallback to bounding rect if corners not found
+             x, y, w, h = cv2.boundingRect(answer_contour)
+             print(f"DEBUG: Processing Answers ROI (Rect): {x},{y},{w},{h}", flush=True)
+             roi = img[y:y+h, x:x+w]
+             
+             roi_thresh = cv2.adaptiveThreshold(roi, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 51, 5)
+             roi_cnts = self.get_contours(roi_thresh)
+             answer_bubbles = []
+             for c in roi_cnts:
+                 if cv2.contourArea(c) > 30:
+                     answer_bubbles.append(c)
+             
+             if answer_bubbles:
+                  results["answers"] = self.process_answers_block(roi, answer_bubbles)
+
+        # Student Name
+        x, y, w, h = cv2.boundingRect(name_contour)
+        print(f"DEBUG: Processing Student Name ROI: {x},{y},{w},{h}", flush=True)
+        roi = img[y:y+h, x:x+w]
+        results["student_name"] = self.process_text_block(roi)
+
+        # Center Code
+        if center_code_contour is not None:
+            x, y, w, h = cv2.boundingRect(center_code_contour)
+            print(f"DEBUG: Processing Center Code ROI: {x},{y},{w},{h}", flush=True)
+            roi = img[y:y+h, x:x+w]
+            results["center_code"] = self.process_numeric_block(roi)
+            
+        # Roll No
+        if roll_no_contour is not None:
+            x, y, w, h = cv2.boundingRect(roll_no_contour)
+            print(f"DEBUG: Processing Roll No ROI: {x},{y},{w},{h}", flush=True)
+            roi = img[y:y+h, x:x+w]
+            results["roll_no"] = self.process_numeric_block(roi)
+
+        # Set
+        if set_contour is not None:
+            x, y, w, h = cv2.boundingRect(set_contour)
+            print(f"DEBUG: Processing Set ROI: {x},{y},{w},{h}", flush=True)
+            roi = img[y:y+h, x:x+w]
+            results["set"] = self.process_set_block(roi)
+
         return results
 
-    def extract_roll_no(self, img):
-        return "4141"
+        return results
 
-    def extract_answers(self, img):
-        # 1. Find all potential bubbles
-        cnts = self.get_contours(img)
+    def process_numeric_block(self, roi):
+        # roi is grayscale
+        # Threshold for both contours and filling
+        thresh = cv2.adaptiveThreshold(roi, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 51, 5)
         
-        questionCnts = []
+        # Morphological opening to remove grid lines/noise
+        kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
+        thresh = cv2.morphologyEx(thresh, cv2.MORPH_OPEN, kernel)
+        
+        # 1. Find bubbles
+        cnts = self.get_contours(thresh)
+        
+        bubbles = []
         for c in cnts:
-            (x, y, w, h) = cv2.boundingRect(c)
-            ar = w / float(h)
-            
-            # Calculate circularity
-            area = cv2.contourArea(c)
-            peri = cv2.arcLength(c, True)
-            if peri == 0:
-                circularity = 0
-            else:
-                circularity = 4 * np.pi * area / (peri * peri)
-            
-            # Filter for bubbles (approx square/circle and correct size)
-            # Adjusted for scale=4 (bubbles approx 25-30px)
-            if w >= 20 and h >= 20 and ar >= 0.6 and ar <= 1.4 and circularity > 0.5:
-                questionCnts.append(c)
-
-        if not questionCnts:
-            return {}
-
-        # 2. Sort top-to-bottom to find rows
-        questionCnts = self.sort_contours(questionCnts, method="top-to-bottom")[0]
+            if cv2.contourArea(c) > 30:
+                bubbles.append(c)
         
-        # 3. Group into rows (questions)
-        questions = {}
-        rows = []
-        current_row = []
-        last_y = 0
+        if not bubbles: return ""
         
-        for c in questionCnts:
-            (x, y, w, h) = cv2.boundingRect(c)
-            if not current_row:
-                current_row.append(c)
-                last_y = y
+        # Sort left-to-right to find columns
+        bubbles, _ = self.sort_contours(bubbles, method="left-to-right")
+        
+        # Group into columns
+        columns = []
+        current_col = []
+        last_x = -100
+        
+        for c in bubbles:
+            x, y, w, h = cv2.boundingRect(c)
+            if not current_col:
+                current_col.append(c)
+                last_x = x
             else:
-                if abs(y - last_y) < 20: # Same row threshold
-                    current_row.append(c)
+                if abs(x - last_x) < 20: # Same column
+                    current_col.append(c)
                 else:
-                    rows.append(current_row)
-                    current_row = [c]
-                    last_y = y
-        if current_row:
-            rows.append(current_row)
+                    columns.append(current_col)
+                    current_col = [c]
+                    last_x = x
+        if current_col:
+            columns.append(current_col)
             
-        # Now process each row
-        q_counter = 1
-        for row in rows:
-            # Sort left-to-right to get options A, B, C, D
-            row = self.sort_contours(row, method="left-to-right")[0]
-            options = ['A', 'B', 'C', 'D', 'E']
+        result = ""
+        for col in columns:
+            # Sort top-to-bottom
+            col, _ = self.sort_contours(col, method="top-to-bottom")
             
-            # Get ratios for all bubbles in row
-            ratios = self.get_filled_bubbles(img, row)
+            # Check which bubble is filled
+            ratios = self.get_filled_bubbles(thresh, col)
+            if not ratios: continue
             
-            if not ratios:
-                q_counter += 1
-                continue
+            max_idx = np.argmax(ratios)
+            if ratios[max_idx] > 0.5: # Threshold
+                result += str(max_idx)
+            else:
+                result += "?"
                 
-            max_ratio = max(ratios)
+        return result
+
+    def process_text_block(self, roi):
+        # roi is grayscale
+        # Threshold for both contours and filling
+        thresh = cv2.adaptiveThreshold(roi, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 51, 5)
+        
+        cnts = self.get_contours(thresh)
+        
+        bubbles = []
+        for c in cnts:
+            if cv2.contourArea(c) > 30:
+                bubbles.append(c)
+        
+        if not bubbles: return ""
+        
+        bubbles, _ = self.sort_contours(bubbles, method="left-to-right")
+        
+        columns = []
+        current_col = []
+        last_x = -100
+        
+        for c in bubbles:
+            x, y, w, h = cv2.boundingRect(c)
+            if not current_col:
+                current_col.append(c)
+                last_x = x
+            else:
+                if abs(x - last_x) < 20: 
+                    current_col.append(c)
+                else:
+                    columns.append(current_col)
+                    current_col = [c]
+                    last_x = x
+        if current_col:
+            columns.append(current_col)
             
-            # Dynamic threshold: Must be at least 0.5, and close to the max
-            threshold = max(0.5, max_ratio * 0.9)
+        result = ""
+        alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        for col in columns:
+            col, _ = self.sort_contours(col, method="top-to-bottom")
+            ratios = self.get_filled_bubbles(thresh, col)
             
-            filled = []
-            for i, ratio in enumerate(ratios):
+            if not ratios: continue
+            
+            max_idx = np.argmax(ratios)
+            if ratios[max_idx] > 0.5:
+                if max_idx < len(alphabet):
+                    result += alphabet[max_idx]
+            else:
+                result += " " 
+                
+        return result.strip()
+
+    def process_set_block(self, roi):
+        # roi is grayscale
+        # Threshold for both contours and filling
+        thresh = cv2.adaptiveThreshold(roi, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 51, 5)
+        
+        cnts = self.get_contours(thresh)
+        
+        bubbles = []
+        for c in cnts:
+            if cv2.contourArea(c) > 30:
+                bubbles.append(c)
+        
+        if not bubbles: return ""
+        
+        # Assuming single row or column
+        # Sort left-to-right
+        bubbles, _ = self.sort_contours(bubbles, method="left-to-right")
+        ratios = self.get_filled_bubbles(thresh, bubbles)
+        
+        options = ['A', 'B', 'C', 'D']
+        for i, r in enumerate(ratios):
+            if r > 0.5:
                 if i < len(options):
-                    if ratio >= threshold:
-                        filled.append(options[i])
+                    return options[i]
+        return ""
+
+    def process_answers_block(self, img, cluster):
+        # Compute threshold for filling check
+        thresh = cv2.adaptiveThreshold(img, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 51, 5)
+        
+        # Calculate average bubble dimensions
+        heights = [cv2.boundingRect(c)[3] for c in cluster]
+        widths = [cv2.boundingRect(c)[2] for c in cluster]
+        if not heights or not widths: return {}
+        
+        avg_h = sum(heights) / len(heights)
+        avg_w = sum(widths) / len(widths)
+        
+        # Thresholds
+        col_gap_thresh = avg_w * 2.0 
+        row_gap_thresh = avg_h * 0.8 # Increased from 0.6 to prevent splitting rows 
+        
+        # 1. Sort left-to-right to find columns
+        cluster, _ = self.sort_contours(cluster, method="left-to-right")
+        
+        columns = []
+        current_col = []
+        last_x = -1000
+        
+        for c in cluster:
+            x, y, w, h = cv2.boundingRect(c)
+            if not current_col:
+                current_col.append(c)
+                last_x = x
+            else:
+                if abs(x - last_x) > col_gap_thresh:
+                    columns.append(current_col)
+                    current_col = [c]
+                else:
+                    current_col.append(c)
+                last_x = x
+        if current_col:
+            columns.append(current_col)
             
-            if filled:
-                questions[str(q_counter)] = filled
-            q_counter += 1
+        print(f"DEBUG: Found {len(columns)} columns of questions", flush=True)
+        
+        # Force 4 columns if we have enough bubbles but grouping failed
+        if len(columns) < 4 and len(cluster) > 50:
+             print("DEBUG: Force splitting into 4 columns using clustering", flush=True)
+             
+             # Cluster X-coordinates to find the main block
+             x_coords = sorted([cv2.boundingRect(c)[0] for c in cluster])
+             clusters = []
+             if x_coords:
+                 current_cluster = [x_coords[0]]
+                 for x in x_coords[1:]:
+                     if x - current_cluster[-1] > 50: # Gap > 50px starts new cluster
+                         clusters.append(current_cluster)
+                         current_cluster = [x]
+                     else:
+                         current_cluster.append(x)
+                 clusters.append(current_cluster)
+             
+             # Find the main cluster (max count)
+             main_cluster_x = max(clusters, key=len)
+             min_x = min(main_cluster_x)
+             max_x = max(main_cluster_x)
+             
+             print(f"DEBUG: Main cluster range: {min_x}-{max_x} (Count: {len(main_cluster_x)})", flush=True)
+             
+             # Filter bubbles to only those in the main cluster
+             main_bubbles = []
+             for c in cluster:
+                 bx = cv2.boundingRect(c)[0]
+                 if min_x <= bx <= max_x:
+                     main_bubbles.append(c)
+             
+             # Split main block into 4
+             total_width = max_x - min_x
+             col_width = total_width / 4
+             
+             columns = [[], [], [], []]
+             for c in main_bubbles:
+                 x, _, _, _ = cv2.boundingRect(c)
+                 idx = int((x - min_x) / col_width)
+                 if idx >= 4: idx = 3
+                 columns[idx].append(c)
+        
+        answers = {}
+        q_counter = 1
+        
+        # 2. Process each column
+        for col_bubbles in columns:
+            # Sort top-to-bottom to find rows (questions)
+            col_bubbles, _ = self.sort_contours(col_bubbles, method="top-to-bottom")
             
-        return questions
+            rows = []
+            current_row = []
+            last_y = -1000
+            
+            for c in col_bubbles:
+                x, y, w, h = cv2.boundingRect(c)
+                if not current_row:
+                    current_row.append(c)
+                    last_y = y
+                else:
+                    if abs(y - last_y) < row_gap_thresh:
+                        current_row.append(c)
+                    else:
+                        rows.append(current_row)
+                        current_row = [c]
+                        last_y = y
+            if current_row:
+                rows.append(current_row)
+            
+            print(f"DEBUG: Column has {len(rows)} rows", flush=True)
+            
+            # Process rows in this column
+            for row in rows:
+                # Sort left-to-right (A, B, C, D)
+                row = self.sort_contours(row, method="left-to-right")[0]
+                options = ['A', 'B', 'C', 'D']
+                
+                ratios = self.get_filled_bubbles(thresh, row)
+                # DEBUG: Print ratios for the first few rows
+                if q_counter <= 5:
+                     print(f"DEBUG: Q{q_counter} Ratios: {[round(r, 2) for r in ratios]}", flush=True)
+                
+                selected = []
+                for i, r in enumerate(ratios):
+                    if r > 0.25: # Lowered Threshold from 0.5
+                        if i < len(options):
+                            selected.append(options[i])
+                            
+                if selected:
+                    answers[str(q_counter)] = selected
+                q_counter += 1
+                
+        return answers
+
