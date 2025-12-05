@@ -395,14 +395,14 @@ class OMREngine:
             x, y, w, h = cv2.boundingRect(center_code_contour)
             print(f"DEBUG: Processing Center Code ROI: {x},{y},{w},{h}", flush=True)
             roi = img[y:y+h, x:x+w]
-            results["center_code"] = self.process_numeric_block(roi)
+            results["center_code"] = self.process_numeric_block(roi, max_columns=2)
             
         # Roll No
         if roll_no_contour is not None:
             x, y, w, h = cv2.boundingRect(roll_no_contour)
             print(f"DEBUG: Processing Roll No ROI: {x},{y},{w},{h}", flush=True)
             roi = img[y:y+h, x:x+w]
-            results["roll_no"] = self.process_numeric_block(roi)
+            results["roll_no"] = self.process_numeric_block(roi, max_columns=4)
 
         # Set
         if set_contour is not None:
@@ -413,150 +413,175 @@ class OMREngine:
 
         return results
 
-    def process_numeric_block(self, roi):
-        # roi is grayscale
-        # Threshold for both contours and filling
-        thresh = cv2.adaptiveThreshold(roi, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 51, 5)
+    def process_numeric_block(self, roi, max_columns=None):
+        # ROI-based Grid Sampling for Numeric Blocks (Center Code, Roll No)
+        # Assumes 12 rows (2 headers + 10 digits)
         
-        # Morphological opening to remove grid lines/noise
+        thresh = cv2.adaptiveThreshold(roi, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 51, 5)
         kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
         thresh = cv2.morphologyEx(thresh, cv2.MORPH_OPEN, kernel)
         
-        # 1. Find bubbles
-        cnts = self.get_contours(thresh)
-        
-        bubbles = []
-        for c in cnts:
-            if cv2.contourArea(c) > 30:
-                bubbles.append(c)
-        
-        if not bubbles: return ""
-        
-        # Sort left-to-right to find columns
-        bubbles, _ = self.sort_contours(bubbles, method="left-to-right")
-        
-        # Group into columns
-        columns = []
-        current_col = []
-        last_x = -100
-        
-        for c in bubbles:
-            x, y, w, h = cv2.boundingRect(c)
-            if not current_col:
-                current_col.append(c)
-                last_x = x
-            else:
-                if abs(x - last_x) < 20: # Same column
-                    current_col.append(c)
-                else:
-                    columns.append(current_col)
-                    current_col = [c]
-                    last_x = x
-        if current_col:
-            columns.append(current_col)
+        h, w = roi.shape
+        # Estimate columns based on width or max_columns
+        # If max_columns is provided, use it to define grid
+        if max_columns:
+            num_cols = max_columns
+        else:
+            # Fallback: estimate based on aspect ratio? 
+            # For now, let's assume standard width per column if not provided
+            # But usually max_columns IS provided now.
+            num_cols = 4 # Default
             
+        num_rows = 12 # 2 headers + 10 digits
+        
+        col_w = w / num_cols
+        row_h = h / num_rows
+        
         result = ""
-        for col in columns:
-            # Sort top-to-bottom
-            col, _ = self.sort_contours(col, method="top-to-bottom")
+        
+        for c_idx in range(num_cols):
+            x1 = int(c_idx * col_w)
+            x2 = int((c_idx + 1) * col_w)
             
-            # Check which bubble is filled
-            ratios = self.get_filled_bubbles(thresh, col)
-            if not ratios: continue
+            best_r_idx = -1
+            max_ratio = 0.0
             
-            max_idx = np.argmax(ratios)
-            if ratios[max_idx] > 0.5: # Threshold
-                result += str(max_idx)
-            else:
-                result += "?"
+            for r_idx in range(num_rows):
+                y1 = int(r_idx * row_h)
+                y2 = int((r_idx + 1) * row_h)
                 
+                pad_x = int(col_w * 0.25)
+                pad_y = int(row_h * 0.25)
+                
+                if y2-pad_y > y1+pad_y and x2-pad_x > x1+pad_x:
+                    cell = thresh[y1+pad_y:y2-pad_y, x1+pad_x:x2-pad_x]
+                    nz = cv2.countNonZero(cell)
+                    area = cell.size
+                    if area > 0:
+                        ratio = nz / area
+                        if ratio > max_ratio:
+                            max_ratio = ratio
+                            best_r_idx = r_idx
+            
+            # Map Row to Digit (Row 2 -> 0)
+            val_idx = best_r_idx - 2
+            
+            if max_ratio > 0.2 and 0 <= val_idx <= 9:
+                result += str(val_idx)
+            else:
+                # result += "?" # Don't output ? for final result, maybe just skip or use 0?
+                # User prefers 00 if empty? Or just empty string?
+                # Let's output 0 if ambiguous? No, better to be empty or ?
+                # Previous logic outputted ?
+                # But for Center Code "00" was preferred.
+                # Let's stick to digits. If fails, maybe "0"?
+                # Actually, if max_ratio is low, it's likely empty.
+                # For Center Code "01", we need "0" and "1".
+                # If we miss, we get nothing.
+                pass
+                
+        # If result length < max_columns, pad?
+        # For now, return what we found.
         return result
 
-    def process_text_block(self, roi):
-        # roi is grayscale
-        # Threshold for both contours and filling
-        thresh = cv2.adaptiveThreshold(roi, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 51, 5)
-        
-        # Morphological opening to remove grid lines/noise
-        kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
-        thresh = cv2.morphologyEx(thresh, cv2.MORPH_OPEN, kernel)
-        
-        cnts = self.get_contours(thresh)
-        
-        bubbles = []
-        for c in cnts:
-            if cv2.contourArea(c) > 30:
-                bubbles.append(c)
-        
-        if not bubbles: return ""
-        
-        bubbles, _ = self.sort_contours(bubbles, method="left-to-right")
-        
-        columns = []
-        current_col = []
-        last_x = -100
-        
-        for c in bubbles:
-            x, y, w, h = cv2.boundingRect(c)
-            if not current_col:
-                current_col.append(c)
-                last_x = x
-            else:
-                if abs(x - last_x) < 20: 
-                    current_col.append(c)
-                else:
-                    columns.append(current_col)
-                    current_col = [c]
-                    last_x = x
-        if current_col:
-            columns.append(current_col)
-            
-        result = ""
-        alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        for col in columns:
-            col, _ = self.sort_contours(col, method="top-to-bottom")
-            ratios = self.get_filled_bubbles(thresh, col)
-            
-            if not ratios: continue
-            
-            max_idx = np.argmax(ratios)
-            if ratios[max_idx] > 0.5:
-                if max_idx < len(alphabet):
-                    result += alphabet[max_idx]
-            else:
-                result += " " 
-                
-        return result.strip()
-
     def process_set_block(self, roi):
-        # roi is grayscale
-        # Threshold for both contours and filling
-        thresh = cv2.adaptiveThreshold(roi, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 51, 5)
+        # ROI-based Grid Sampling for Set
+        # Assumes 6 rows (2 headers + 4 options)
         
-        # Morphological opening to remove grid lines/noise
+        thresh = cv2.adaptiveThreshold(roi, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 51, 5)
         kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
         thresh = cv2.morphologyEx(thresh, cv2.MORPH_OPEN, kernel)
         
-        cnts = self.get_contours(thresh)
+        h, w = roi.shape
+        num_cols = 1
+        num_rows = 6
         
-        bubbles = []
-        for c in cnts:
-            if cv2.contourArea(c) > 30:
-                bubbles.append(c)
-        
-        if not bubbles: return ""
-        
-        # Assuming single row or column
-        # Sort left-to-right
-        bubbles, _ = self.sort_contours(bubbles, method="left-to-right")
-        ratios = self.get_filled_bubbles(thresh, bubbles)
+        col_w = w / num_cols
+        row_h = h / num_rows
         
         options = ['A', 'B', 'C', 'D']
-        for i, r in enumerate(ratios):
-            if r > 0.5:
-                if i < len(options):
-                    return options[i]
+        
+        best_r_idx = -1
+        max_ratio = 0.0
+        
+        for r_idx in range(num_rows):
+            y1 = int(r_idx * row_h)
+            y2 = int((r_idx + 1) * row_h)
+            
+            pad_x = int(col_w * 0.25)
+            pad_y = int(row_h * 0.25)
+            
+            if y2-pad_y > y1+pad_y:
+                cell = thresh[y1+pad_y:y2-pad_y, int(col_w*0.2):int(col_w*0.8)]
+                nz = cv2.countNonZero(cell)
+                area = cell.size
+                if area > 0:
+                    ratio = nz / area
+                    if ratio > max_ratio:
+                        max_ratio = ratio
+                        best_r_idx = r_idx
+        
+        # Map Row to Option (Row 2 -> A)
+        opt_idx = best_r_idx - 2
+        
+        if max_ratio > 0.2 and 0 <= opt_idx < 4:
+            return options[opt_idx]
+            
         return ""
+    def process_text_block(self, roi):
+        # ROI-based Grid Sampling for Student Name
+        # Assumes 20 columns and 28 rows (2 headers + 26 letters)
+        
+        # Thresholding
+        thresh = cv2.adaptiveThreshold(roi, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 51, 5)
+        kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
+        thresh = cv2.morphologyEx(thresh, cv2.MORPH_OPEN, kernel)
+        
+        h, w = roi.shape
+        num_cols = 20
+        num_rows = 28
+        
+        col_w = w / num_cols
+        row_h = h / num_rows
+        
+        result = ""
+        alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        
+        for c_idx in range(num_cols):
+            x1 = int(c_idx * col_w)
+            x2 = int((c_idx + 1) * col_w)
+            
+            best_r_idx = -1
+            max_ratio = 0.0
+            
+            for r_idx in range(num_rows):
+                y1 = int(r_idx * row_h)
+                y2 = int((r_idx + 1) * row_h)
+                
+                # Crop cell with padding
+                pad_x = int(col_w * 0.25)
+                pad_y = int(row_h * 0.25)
+                
+                if y2-pad_y > y1+pad_y and x2-pad_x > x1+pad_x:
+                    cell = thresh[y1+pad_y:y2-pad_y, x1+pad_x:x2-pad_x]
+                    nz = cv2.countNonZero(cell)
+                    area = cell.size
+                    if area > 0:
+                        ratio = nz / area
+                        if ratio > max_ratio:
+                            max_ratio = ratio
+                            best_r_idx = r_idx
+            
+            # Map Row to Letter (Row 2 -> A)
+            letter_idx = best_r_idx - 2
+            
+            if max_ratio > 0.4 and 0 <= letter_idx < 26:
+                result += alphabet[letter_idx]
+            else:
+                result += " "
+                
+        # Collapse multiple spaces
+        return ' '.join(result.split())
         
 
     def process_answers_block(self, img, all_bubbles):
