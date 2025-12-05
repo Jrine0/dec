@@ -72,7 +72,7 @@ image_files = glob.glob(os.path.join(SRS_DIR, "*.tif"))
 image_files.sort()
 
 # Limit for testing if needed, but user asked for "all marks"
-image_files = image_files[:5] 
+image_files = image_files # Process all 
 
 print(f"Found {len(image_files)} images to process.")
 
