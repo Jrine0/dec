@@ -16,7 +16,7 @@ print("OMREngine imported.")
 def visualize_processing():
     print("Inside visualize_processing...")
     engine = OMREngine()
-    image_path = r"c:/Users/jitin/Desktop/Desk/drive/Documents/omr/OMR_SRS/image (13).tif"
+    image_path = r"c:/Users/jitin/Desktop/Desk/drive/Documents/omr/OMR_SRS/image (1).tif"
     
     if not os.path.exists(image_path):
         print(f"Image not found: {image_path}")
@@ -24,33 +24,27 @@ def visualize_processing():
 
     print(f"Processing {image_path}...")
     image = cv2.imread(image_path)
-    
-    # Use Canny as it seems to find edges well
-    print("Using Canny for contour visualization")
-    edged = cv2.Canny(cv2.GaussianBlur(cv2.cvtColor(image, cv2.COLOR_BGR2GRAY), (5, 5), 0), 75, 200)
-    cnts = cv2.findContours(edged, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-    cnts = cnts[0] if len(cnts) == 2 else cnts[1]
-    cnts = sorted(cnts, key=cv2.contourArea, reverse=True)
-    
-    debug_corners_img = image.copy()
-    
-    # Draw top 20 contours
-    print(f"Total contours found: {len(cnts)}")
-    for i, c in enumerate(cnts[:20]):
-        area = cv2.contourArea(c)
-        x, y, w, h = cv2.boundingRect(c)
+    if image is None:
+        print("Failed to load image")
+        return
         
-        # Color cycle
-        colors = [(0, 0, 255), (0, 255, 0), (255, 0, 0), (0, 255, 255), (255, 0, 255), (255, 255, 0)]
-        color = colors[i % len(colors)]
-        
-        cv2.drawContours(debug_corners_img, [c], -1, color, 3)
-        cv2.putText(debug_corners_img, f"#{i} ({int(area)})", (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.8, color, 2)
-        print(f"Contour #{i}: Area={area}, Rect=(x={x}, y={y}, w={w}, h={h})")
+    print(f"Image Shape: {image.shape}")
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    print(f"Gray Stats: min={np.min(gray)}, max={np.max(gray)}, mean={np.mean(gray)}")
+    
+    print(f"Gray Stats: min={np.min(gray)}, max={np.max(gray)}, mean={np.mean(gray)}")
+    
+    # Run the full process to generate debug images (like debug_warped_answers.jpg)
+    print("Running engine.process_sheet()...")
+    try:
+        results = engine.process_sheet(image)
+        print("Process sheet finished.")
+        print(f"Results: {results.get('answers', 'No answers')}")
+    except Exception as e:
+        print(f"Error in process_sheet: {e}")
 
-    cv2.imwrite("debug_all_contours.jpg", debug_corners_img)
-    print("Saved debug_all_contours.jpg")
-    
+    # Now we can analyze the *result* of that, but for now let's just stop here 
+    # as process_sheet saves 'debug_warped_answers.jpg'
     return
 
 if __name__ == '__main__':

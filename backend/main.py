@@ -144,7 +144,10 @@ def process_omr(answer_key: UploadFile = File(...)):
                      
                      # Format Marks string (e.g. "1:A 2:B ...")
                      marks_str = ""
-                     sorted_qs = sorted(student_answers.keys(), key=lambda x: int(x))
+                     try:
+                         sorted_qs = sorted(student_answers.keys(), key=lambda x: int(x.replace('Q', '')))
+                     except:
+                         sorted_qs = sorted(student_answers.keys())
                      for q in sorted_qs:
                          ans = "".join(student_answers[q])
                          marks_str += f"{q}:{ans} "

@@ -1,0 +1,180 @@
+Key Path: C:\Users\jitin\Desktop\Desk\drive\Documents\omr\Untitled spreadsheet.csv
+Images Dir: C:\Users\jitin\Desktop\Desk\drive\Documents\omr\OMR_SRS
+Output CSV: C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\omr_results_sample.csv
+Key Columns: ['Q_No', 'Section', 'Option_A_Score', 'Option_B_Score', 'Option_C_Score', 'Option_D_Score']
+Loaded key for 60 questions.
+Processing 5 sample images...
+[1/5] Processing image (1).tif...
+DEBUG: process_sheet called
+DEBUG: Warped Answer ROI
+DEBUG: Median Bubble Area: 53.0
+DEBUG: Found 468 bubbles after filtering (from 637)
+DEBUG: Found 17 columns of questions
+DEBUG: Found 14 valid columns (>= 10 bubbles)
+DEBUG: Global Grid: Found 13 peaks. RowH=55.0, StartY=192.7
+DEBUG: Column 0 has 45 bubbles
+DEBUG: Column 0 has 15 rows (Global Grid)
+DEBUG: Col 0 Peaks: [185.06140350877195, 200.27192982456143, 220.55263157894737, 245.90350877192984, 261.1140350877193, 271.2543859649123, 281.39473684210526] -> A=185.1, D=281.4, SlotW=32.1
+DEBUG: Q1 Ratios: [1.0, 0.55, 0.0, 0.0] -> Max: 1.000 (Idx: 0)
+DEBUG: Q2 Ratios: [0.5454545454545454, 0.55, 0.0, 0.9] -> Max: 0.900 (Idx: 3)
+DEBUG: Q3 Ratios: [0.5185185185185185, 1.0, 0.0, 0.0] -> Max: 1.000 (Idx: 1)
+DEBUG: Q4 Ratios: [0.0, 0.0, 1.0, 0.8333333333333334] -> Max: 1.000 (Idx: 2)
+DEBUG: Q5 Ratios: [0.6666666666666666, 0.078125, 0.078125, 0.9333333333333333] -> Max: 0.933 (Idx: 3)
+DEBUG: Column 1 has 49 bubbles
+DEBUG: Column 1 has 15 rows (Global Grid)
+DEBUG: Col 1 Peaks: [759.2616279069769, 774.296511627907, 794.3430232558139, 814.3895348837209, 834.4360465116279, 854.4825581395348] -> A=759.3, D=854.5, SlotW=31.7
+DEBUG: Column 2 has 48 bubbles
+DEBUG: Column 2 has 15 rows (Global Grid)
+DEBUG: Col 2 Peaks: [1328.425087108014, 1368.452961672474, 1388.4668989547038, 1408.4808362369336, 1423.4912891986062] -> A=1328.4, D=1423.5, SlotW=31.7
+DEBUG: Column 3 has 48 bubbles
+DEBUG: Column 3 has 15 rows (Global Grid)
+DEBUG: Col 3 Peaks: [1883.4653846153847, 1903.475641025641, 1923.4858974358974, 1943.496153846154] -> A=1883.5, D=1943.5, SlotW=20.0
+DEBUG: Found 468 bubbles in Warped Answer ROI
+DEBUG: Found 17 columns of questions
+DEBUG: Found 14 valid columns (>= 10 bubbles)
+DEBUG: Global Grid: Found 13 peaks. RowH=55.0, StartY=192.7
+DEBUG: Column 0 has 45 bubbles
+DEBUG: Column 0 has 15 rows (Global Grid)
+DEBUG: Col 0 Peaks: [185.06140350877195, 200.27192982456143, 220.55263157894737, 245.90350877192984, 261.1140350877193, 271.2543859649123, 281.39473684210526] -> A=185.1, D=281.4, SlotW=32.1
+DEBUG: Q1 Ratios: [1.0, 0.55, 0.0, 0.0] -> Max: 1.000 (Idx: 0)
+DEBUG: Q2 Ratios: [0.5454545454545454, 0.55, 0.0, 0.9] -> Max: 0.900 (Idx: 3)
+DEBUG: Q3 Ratios: [0.5185185185185185, 1.0, 0.0, 0.0] -> Max: 1.000 (Idx: 1)
+DEBUG: Q4 Ratios: [0.0, 0.0, 1.0, 0.8333333333333334] -> Max: 1.000 (Idx: 2)
+DEBUG: Q5 Ratios: [0.6666666666666666, 0.078125, 0.078125, 0.9333333333333333] -> Max: 0.933 (Idx: 3)
+DEBUG: Column 1 has 49 bubbles
+DEBUG: Column 1 has 15 rows (Global Grid)
+DEBUG: Col 1 Peaks: [759.2616279069769, 774.296511627907, 794.3430232558139, 814.3895348837209, 834.4360465116279, 854.4825581395348] -> A=759.3, D=854.5, SlotW=31.7
+DEBUG: Column 2 has 48 bubbles
+DEBUG: Column 2 has 15 rows (Global Grid)
+DEBUG: Col 2 Peaks: [1328.425087108014, 1368.452961672474, 1388.4668989547038, 1408.4808362369336, 1423.4912891986062] -> A=1328.4, D=1423.5, SlotW=31.7
+DEBUG: Column 3 has 48 bubbles
+DEBUG: Column 3 has 15 rows (Global Grid)
+DEBUG: Col 3 Peaks: [1883.4653846153847, 1903.475641025641, 1923.4858974358974, 1943.496153846154] -> A=1883.5, D=1943.5, SlotW=20.0
+DEBUG: Processing Student Name ROI: 1084,296,1154,1538
+DEBUG: Processing Center Code ROI: 227,297,235,661
+DEBUG: Processing Roll No ROI: 513,297,234,661
+DEBUG: Processing Set ROI: 798,297,179,661
+  Roll: 00000000, Score: 0
+[2/5] Processing image (10).tif...
+DEBUG: process_sheet called
+DEBUG: Processing Answers ROI (Rect): 225,1940,2013,1210
+DEBUG: Found 1 columns of questions
+DEBUG: Found 0 valid columns (>= 10 bubbles)
+DEBUG: Global Grid Failed (1 peaks). Fallback ROI: RowH=80.7
+DEBUG: Processing Student Name ROI: 1082,299,1154,1538
+DEBUG: Processing Center Code ROI: 225,300,235,662
+DEBUG: Processing Roll No ROI: 511,300,235,662
+DEBUG: Processing Set ROI: 797,300,178,662
+  Roll: 0100000, Score: 0
+[3/5] Processing image (100).tif...
+DEBUG: process_sheet called
+DEBUG: Warped Answer ROI
+DEBUG: Median Bubble Area: 64.75
+DEBUG: Found 405 bubbles after filtering (from 570)
+DEBUG: Found 17 columns of questions
+DEBUG: Found 11 valid columns (>= 10 bubbles)
+DEBUG: Global Grid: Found 15 peaks. RowH=55.1, StartY=192.8
+DEBUG: Column 0 has 38 bubbles
+DEBUG: Column 0 has 15 rows (Global Grid)
+DEBUG: Col 0 Peaks: [185.06140350877195, 200.27192982456143, 220.55263157894737, 245.90350877192984, 281.39473684210526] -> A=185.1, D=281.4, SlotW=32.1
+DEBUG: Q1 Ratios: [0.0, 0.0, 1.0, 0.0] -> Max: 1.000 (Idx: 2)
+DEBUG: Q2 Ratios: [0.4583333333333333, 0.8, 0.0, 0.0] -> Max: 0.800 (Idx: 1)
+DEBUG: Q3 Ratios: [1.0, 0.9333333333333333, 0.6333333333333333, 0.65] -> Max: 1.000 (Idx: 0)
+DEBUG: Q4 Ratios: [1.0, 1.0, 0.5333333333333333, 0.8787878787878788] -> Max: 1.000 (Idx: 0)
+DEBUG: Q5 Ratios: [0.5, 0.08928571428571429, 0.0, 0.0] -> Max: 0.500 (Idx: 0)
+DEBUG: Column 1 has 54 bubbles
+DEBUG: Column 1 has 15 rows (Global Grid)
+DEBUG: Col 1 Peaks: [300.475, 335.825, 356.025, 376.225, 396.42499999999995] -> A=300.5, D=396.4, SlotW=32.0
+DEBUG: Column 2 has 42 bubbles
+DEBUG: Column 2 has 15 rows (Global Grid)
+DEBUG: Col 2 Peaks: [1331.1620689655172, 1371.2724137931034, 1391.3275862068965, 1426.4241379310345] -> A=1331.2, D=1426.4, SlotW=31.8
+DEBUG: Column 3 has 52 bubbles
+DEBUG: Column 3 has 15 rows (Global Grid)
+DEBUG: Col 3 Peaks: [1849.3948717948717, 1884.4307692307693, 1904.451282051282, 1924.4717948717948, 1944.4923076923078] -> A=1849.4, D=1944.5, SlotW=31.7
+DEBUG: Found 405 bubbles in Warped Answer ROI
+DEBUG: Found 17 columns of questions
+DEBUG: Found 11 valid columns (>= 10 bubbles)
+DEBUG: Global Grid: Found 15 peaks. RowH=55.1, StartY=192.8
+DEBUG: Column 0 has 38 bubbles
+DEBUG: Column 0 has 15 rows (Global Grid)
+DEBUG: Col 0 Peaks: [185.06140350877195, 200.27192982456143, 220.55263157894737, 245.90350877192984, 281.39473684210526] -> A=185.1, D=281.4, SlotW=32.1
+DEBUG: Q1 Ratios: [0.0, 0.0, 1.0, 0.0] -> Max: 1.000 (Idx: 2)
+DEBUG: Q2 Ratios: [0.4583333333333333, 0.8, 0.0, 0.0] -> Max: 0.800 (Idx: 1)
+DEBUG: Q3 Ratios: [1.0, 0.9333333333333333, 0.6333333333333333, 0.65] -> Max: 1.000 (Idx: 0)
+DEBUG: Q4 Ratios: [1.0, 1.0, 0.5333333333333333, 0.8787878787878788] -> Max: 1.000 (Idx: 0)
+DEBUG: Q5 Ratios: [0.5, 0.08928571428571429, 0.0, 0.0] -> Max: 0.500 (Idx: 0)
+DEBUG: Column 1 has 54 bubbles
+DEBUG: Column 1 has 15 rows (Global Grid)
+DEBUG: Col 1 Peaks: [300.475, 335.825, 356.025, 376.225, 396.42499999999995] -> A=300.5, D=396.4, SlotW=32.0
+DEBUG: Column 2 has 42 bubbles
+DEBUG: Column 2 has 15 rows (Global Grid)
+DEBUG: Col 2 Peaks: [1331.1620689655172, 1371.2724137931034, 1391.3275862068965, 1426.4241379310345] -> A=1331.2, D=1426.4, SlotW=31.8
+DEBUG: Column 3 has 52 bubbles
+DEBUG: Column 3 has 15 rows (Global Grid)
+DEBUG: Col 3 Peaks: [1849.3948717948717, 1884.4307692307693, 1904.451282051282, 1924.4717948717948, 1944.4923076923078] -> A=1849.4, D=1944.5, SlotW=31.7
+DEBUG: Processing Student Name ROI: 1075,288,1154,1538
+DEBUG: Processing Center Code ROI: 219,286,236,660
+DEBUG: Processing Roll No ROI: 505,286,236,661
+DEBUG: Processing Set ROI: 792,287,177,661
+  Roll: 0000000, Score: 0
+[4/5] Processing image (11).tif...
+DEBUG: process_sheet called
+DEBUG: Processing Answers ROI (Rect): 222,1938,2012,1209
+DEBUG: Found 1 columns of questions
+DEBUG: Found 0 valid columns (>= 10 bubbles)
+DEBUG: Global Grid Failed (1 peaks). Fallback ROI: RowH=80.6
+DEBUG: Processing Student Name ROI: 1080,297,1153,1537
+DEBUG: Processing Center Code ROI: 223,297,236,662
+DEBUG: Processing Roll No ROI: 513,410,225,547
+DEBUG: Processing Set ROI: 794,298,178,661
+  Roll: 0000, Score: 0
+[5/5] Processing image (12).tif...
+DEBUG: process_sheet called
+DEBUG: Warped Answer ROI
+DEBUG: Median Bubble Area: 78.0
+DEBUG: Found 497 bubbles after filtering (from 663)
+DEBUG: Found 16 columns of questions
+DEBUG: Found 13 valid columns (>= 10 bubbles)
+DEBUG: Global Grid: Found 15 peaks. RowH=55.0, StartY=192.7
+DEBUG: Column 0 has 55 bubbles
+DEBUG: Column 0 has 15 rows (Global Grid)
+DEBUG: Col 0 Peaks: [299.73125, 319.88124999999997, 329.95624999999995, 355.14374999999995, 375.29375, 390.40625] -> A=299.7, D=390.4, SlotW=30.2
+DEBUG: Q1 Ratios: [1.0, 0.0, 1.0, 1.0] -> Max: 1.000 (Idx: 0)
+DEBUG: Q2 Ratios: [1.0, 0.13333333333333333, 0.4583333333333333, 0.0546875] -> Max: 1.000 (Idx: 0)
+DEBUG: Q3 Ratios: [0.3, 0.03333333333333333, 0.5833333333333334, 1.0] -> Max: 1.000 (Idx: 3)
+DEBUG: Q4 Ratios: [0.024509803921568627, 0.7142857142857143, 0.0213903743315508, 1.0] -> Max: 1.000 (Idx: 3)
+DEBUG: Q5 Ratios: [0.0, 0.0, 0.5625, 0.21904761904761905] -> Max: 0.562 (Idx: 2)
+DEBUG: Column 1 has 58 bubbles
+DEBUG: Column 1 has 15 rows (Global Grid)
+DEBUG: Col 1 Peaks: [851.2049180327868, 871.2923497267759, 891.3797814207651, 906.4453551912568] -> A=851.2, D=906.4, SlotW=18.4
+DEBUG: Column 2 has 42 bubbles
+DEBUG: Column 2 has 15 rows (Global Grid)
+DEBUG: Col 2 Peaks: [1332.5, 1352.5, 1392.5, 1402.5, 1422.5] -> A=1332.5, D=1422.5, SlotW=30.0
+DEBUG: Column 3 has 56 bubbles
+DEBUG: Column 3 has 15 rows (Global Grid)
+DEBUG: Col 3 Peaks: [1849.3948717948717, 1864.4102564102564, 1879.425641025641, 1904.451282051282, 1924.4717948717948, 1939.4871794871794] -> A=1849.4, D=1939.5, SlotW=30.0
+DEBUG: Found 497 bubbles in Warped Answer ROI
+DEBUG: Found 16 columns of questions
+DEBUG: Found 13 valid columns (>= 10 bubbles)
+DEBUG: Global Grid: Found 15 peaks. RowH=55.0, StartY=192.7
+DEBUG: Column 0 has 55 bubbles
+DEBUG: Column 0 has 15 rows (Global Grid)
+DEBUG: Col 0 Peaks: [299.73125, 319.88124999999997, 329.95624999999995, 355.14374999999995, 375.29375, 390.40625] -> A=299.7, D=390.4, SlotW=30.2
+DEBUG: Q1 Ratios: [1.0, 0.0, 1.0, 1.0] -> Max: 1.000 (Idx: 0)
+DEBUG: Q2 Ratios: [1.0, 0.13333333333333333, 0.4583333333333333, 0.0546875] -> Max: 1.000 (Idx: 0)
+DEBUG: Q3 Ratios: [0.3, 0.03333333333333333, 0.5833333333333334, 1.0] -> Max: 1.000 (Idx: 3)
+DEBUG: Q4 Ratios: [0.024509803921568627, 0.7142857142857143, 0.0213903743315508, 1.0] -> Max: 1.000 (Idx: 3)
+DEBUG: Q5 Ratios: [0.0, 0.0, 0.5625, 0.21904761904761905] -> Max: 0.562 (Idx: 2)
+DEBUG: Column 1 has 58 bubbles
+DEBUG: Column 1 has 15 rows (Global Grid)
+DEBUG: Col 1 Peaks: [851.2049180327868, 871.2923497267759, 891.3797814207651, 906.4453551912568] -> A=851.2, D=906.4, SlotW=18.4
+DEBUG: Column 2 has 42 bubbles
+DEBUG: Column 2 has 15 rows (Global Grid)
+DEBUG: Col 2 Peaks: [1332.5, 1352.5, 1392.5, 1402.5, 1422.5] -> A=1332.5, D=1422.5, SlotW=30.0
+DEBUG: Column 3 has 56 bubbles
+DEBUG: Column 3 has 15 rows (Global Grid)
+DEBUG: Col 3 Peaks: [1849.3948717948717, 1864.4102564102564, 1879.425641025641, 1904.451282051282, 1924.4717948717948, 1939.4871794871794] -> A=1849.4, D=1939.5, SlotW=30.0
+DEBUG: Processing Student Name ROI: 1081,297,1153,1537
+  Roll: , Score: 0
+
+SUCCESS: Generated C:\Users\jitin\Desktop\Desk\drive\Documents\omr\backend\omr_results_sample.csv

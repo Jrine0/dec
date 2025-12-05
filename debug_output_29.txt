@@ -1,0 +1,3 @@
+Processing c:/Users/jitin/Desktop/Desk/drive/Documents/omr/OMR_SRS/image (13).tif...
+DEBUG: process_sheet called
+Exception: name 'warped_thresh' is not defined

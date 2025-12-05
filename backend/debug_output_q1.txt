@@ -1,0 +1,48 @@
+Raw Bubbles (X, Area):
+  x=0, area=2166.0
+  x=1, area=32.0
+  x=1, area=68.0
+  x=1, area=50.0
+  x=1, area=136.0
+  x=1, area=208.0
+  x=1, area=253.0
+  x=72, area=100.5
+  x=72, area=97.0
+  x=72, area=84.5
+  x=74, area=75.5
+  x=77, area=68.0
+  x=77, area=55.0
+  x=81, area=54.0
+  x=81, area=59.0
+  x=82, area=104.0
+  x=83, area=72.0
+  x=85, area=78.0
+  x=89, area=35.0
+  x=91, area=92.5
+Found 19 columns.
+Histogram: [7 0 0 0 0 0 0 0 0 0 0 0 0 0 0 6 2 2 4 4 1 0]
+Bin Edges: [  0.           5.04545455  10.09090909  15.13636364  20.18181818
+  25.22727273  30.27272727  35.31818182  40.36363636  45.40909091
+  50.45454545  55.5         60.54545455  65.59090909  70.63636364
+  75.68181818  80.72727273  85.77272727  90.81818182  95.86363636
+ 100.90909091 105.95454545 111.        ]
+Peaks failed (1). Fallback: A=2.0, D=100.0
+Found 12 rows.
+
+--- Q1 ---
+  Bubble at x=1, cx=3, rel_x=1.0 -> Slot 0 (Ratio: 1.00)
+
+--- Q2 ---
+  Bubble at x=1, cx=3, rel_x=1.0 -> Slot 0 (Ratio: 1.00)
+
+--- Q3 ---
+  Bubble at x=1, cx=2, rel_x=0.0 -> Slot 0 (Ratio: 1.00)
+  Bubble at x=89, cx=93, rel_x=91.0 -> Slot 3 (Ratio: 0.53)
+
+--- Q4 ---
+  Bubble at x=1, cx=2, rel_x=0.0 -> Slot 0 (Ratio: 1.00)
+  Bubble at x=1, cx=2, rel_x=0.0 -> Slot 0 (Ratio: 1.00)
+
+--- Q5 ---
+  Bubble at x=1, cx=2, rel_x=0.0 -> Slot 0 (Ratio: 1.00)
+  Bubble at x=0, cx=2, rel_x=0.0 -> Slot 0 (Ratio: 1.00)

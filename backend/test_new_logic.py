@@ -34,10 +34,14 @@ def test_omr():
             
             # Print first few answers
             answers = results.get('answers', {})
-            sorted_keys = sorted(answers.keys(), key=lambda x: int(x))
+            try:
+                sorted_keys = sorted(answers.keys(), key=lambda x: int(x.replace('Q', '')))
+            except:
+                sorted_keys = sorted(answers.keys())
+                
             print("First 5 Answers:")
             for k in sorted_keys[:5]:
-                print(f"  Q{k}: {answers[k]}")
+                print(f"  {k}: {answers[k]}")
                 
     except Exception as e:
         print(f"Exception: {e}")

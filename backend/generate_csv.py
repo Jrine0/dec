@@ -72,11 +72,19 @@ if status == 200:
         # Generate CSV
         with open(OUTPUT_CSV, 'w', newline='') as csvfile:
             writer = csv.writer(csvfile)
-            writer.writerow(["Filename", "Roll No", "Total Score"])
+            writer.writerow(["Filename", "Center Code", "Roll No", "Set", "Student Name", "Marks", "Total Score"])
             
             for r in results:
                 if isinstance(r, dict):
-                    writer.writerow([r.get('filename'), r.get('roll_no'), r.get('total_score')])
+                    writer.writerow([
+                        r.get('filename'),
+                        r.get('center_code'),
+                        r.get('roll_no'),
+                        r.get('set'),
+                        r.get('student_name'),
+                        r.get('marks'),
+                        r.get('total_score')
+                    ])
                 else:
                     print(f"Skipping invalid result: {r}")
                 

@@ -1,0 +1,33 @@
+Processing c:/Users/jitin/Desktop/Desk/drive/Documents/omr/OMR_SRS/image (13).tif...
+DEBUG: process_sheet called
+DEBUG: Warped Answer ROI
+DEBUG: Found 661 bubbles in Warped Answer ROI
+DEBUG: Found 6 columns of questions
+DEBUG: Column has 2 rows
+DEBUG: Q1 Ratios: [0.0]
+DEBUG: Q2 Ratios: [1.0]
+DEBUG: Column has 16 rows
+DEBUG: Q3 Ratios: [1.0, 1.0]
+DEBUG: Q4 Ratios: [1.0]
+DEBUG: Q5 Ratios: [0.34]
+DEBUG: Column has 20 rows
+DEBUG: Column has 2 rows
+DEBUG: Column has 19 rows
+DEBUG: Column has 18 rows
+DEBUG: Processing Student Name ROI: 1081,293,1155,1540
+DEBUG: Processing Center Code ROI: 227,294,233,662
+DEBUG: Processing Roll No ROI: 511,294,235,662
+DEBUG: Processing Set ROI: 797,294,177,662
+
+--- Extraction Results ---
+Center Code: 00001100
+Roll No: 0000000
+Set: 
+Student Name: 
+Answers Found: 76
+First 5 Answers:
+  Q2: ['A']
+  Q3: ['A', 'B']
+  Q4: ['A']
+  Q5: ['A']
+  Q6: ['A']
