@@ -1,9 +1,0 @@
-Processing c:/Users/jitin/Desktop/Desk/drive/Documents/omr/OMR_SRS/image (13).tif...
-Contours on Thresh: 610
-Bubbles on Thresh (>30px): 565
-Bubbles in Bottom Half (>1000px): 390
-Avg Area of Bottom Bubbles: 1398.41
-Contours on Edged: 1314
-Bubbles on Edged (>30px): 639
-Contours on Otsu: 652
-Bubbles on Otsu (>30px): 585
