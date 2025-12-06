@@ -10,7 +10,7 @@ import sys
 # Setup paths
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PARENT_DIR = os.path.dirname(BASE_DIR)
-KEY_PATH = os.path.join(PARENT_DIR, "Untitled spreadsheet.csv")
+KEY_PATH = os.path.join(PARENT_DIR, "answers.csv")
 SRS_DIR = os.path.join(PARENT_DIR, "OMR_SRS")
 OUTPUT_CSV = os.path.join(BASE_DIR, "final_results.csv")
 
@@ -49,14 +49,24 @@ print(f"Key Columns: {df.columns.tolist()}")
 
 key_data = {}
 for _, row in df.iterrows():
-    q_num = str(row['Q_No'])
+    q_num_raw = str(row['Q_No']).strip()
+    # Normalize to Q1, Q2...
+    if not q_num_raw.lower().startswith('q'):
+        q_num = f"Q{q_num_raw}"
+    else:
+        q_num = q_num_raw.capitalize()
+
     section = str(row.get('Section', ''))
-    option_scores = {
+    raw_scores = {
         "A": float(row.get('Option_A_Score', 0)),
         "B": float(row.get('Option_B_Score', 0)),
         "C": float(row.get('Option_C_Score', 0)),
         "D": float(row.get('Option_D_Score', 0))
     }
+    # Force Correct Answer to 4.0, others to 0.0
+    max_val = max(raw_scores.values())
+    option_scores = {k: (4.0 if v == max_val and v > 0 else 0.0) for k, v in raw_scores.items()}
+
     correct_options = [opt for opt, score in option_scores.items() if score > 0]
     key_data[q_num] = {
         "section": section,
@@ -72,7 +82,7 @@ image_files = glob.glob(os.path.join(SRS_DIR, "*.tif"))
 image_files.sort()
 
 # Limit for testing if needed, but user asked for "all marks"
-image_files = image_files[:5] 
+image_files = image_files # Process all 
 
 print(f"Found {len(image_files)} images to process.")
 
@@ -103,6 +113,24 @@ for i, file_path in enumerate(image_files):
         # Score
         total_score, details = scorer.calculate_score(student_answers, key_data)
         
+        # --- Calculate Section Scores ---
+        section_1_score = 0
+        section_2_score = 0
+        
+        for q, det in details.items():
+            # Extract numeric part from "Q1" -> 1
+            try:
+                q_int = int(q.replace('Q', ''))
+                
+                if 1 <= q_int <= 30:
+                    section_1_score += det['score']
+                elif 31 <= q_int <= 60:
+                    section_2_score += det['score']
+            except:
+                pass
+                
+        final_marks = section_1_score + section_2_score
+
         # Format Marks string
         marks_str = ""
         try:
@@ -122,9 +150,11 @@ for i, file_path in enumerate(image_files):
             "Set": set_code,
             "Student name": student_name,
             "Marks": marks_str,
-            "Total Score": total_score
+            "Section 1": section_1_score,
+            "Section 2": section_2_score,
+            "Final Marks": final_marks
         })
-        print(f"  Roll: {roll_no}, Score: {total_score}")
+        print(f"  Roll: {roll_no}, Final: {final_marks}, Score: {total_score}")
         
     except Exception as e:
         print(f"  Exception: {e}")
@@ -133,7 +163,7 @@ for i, file_path in enumerate(image_files):
 
 # 3. Save to CSV
 if results:
-    cols = ["Filename", "Center code", "Roll no", "Set", "Student name", "Marks", "Total Score"]
+    cols = ["Filename", "Center code", "Roll no", "Set", "Student name", "Marks", "Section 1", "Section 2", "Final Marks"]
     pd.DataFrame(results).to_csv(OUTPUT_CSV, index=False, columns=cols)
     print(f"\nSUCCESS: Generated {OUTPUT_CSV}")
     print(f"Total processed: {len(results)}")

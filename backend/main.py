@@ -84,16 +84,26 @@ def process_omr(answer_key: UploadFile = File(...)):
         key_data = {} # Initialize key_data
         
         for _, row in df.iterrows():
-            q_num = str(row['Q_No'])
+            q_num_raw = str(row['Q_No']).strip()
+            # Normalize to Q1, Q2...
+            if not q_num_raw.lower().startswith('q'):
+                q_num = f"Q{q_num_raw}"
+            else:
+                q_num = q_num_raw.capitalize() # ensure Q1 not q1
+
             section = str(row.get('Section', ''))
             
             # Extract scores for each option
-            option_scores = {
+
+            raw_scores = {
                 "A": float(row.get('Option_A_Score', 0)),
                 "B": float(row.get('Option_B_Score', 0)),
                 "C": float(row.get('Option_C_Score', 0)),
                 "D": float(row.get('Option_D_Score', 0))
             }
+            # Force Correct Answer to 4.0, others to 0.0
+            max_val = max(raw_scores.values())
+            option_scores = {k: (4.0 if v == max_val and v > 0 else 0.0) for k, v in raw_scores.items()}
             
             # Determine correct options (those with positive score)
             correct_options = [opt for opt, score in option_scores.items() if score > 0]
@@ -141,6 +151,24 @@ def process_omr(answer_key: UploadFile = File(...)):
                      
                      # Score
                      total_score, details = scorer.calculate_score(student_answers, key_data)
+
+                     # --- Calculate Section Scores ---
+                     section_1_score = 0
+                     section_2_score = 0
+                     
+                     for q, det in details.items():
+                         # Extract numeric part from "Q1" -> 1
+                         try:
+                             q_int = int(q.replace('Q', ''))
+                             
+                             if 1 <= q_int <= 30:
+                                 section_1_score += det['score']
+                             elif 31 <= q_int <= 60:
+                                 section_2_score += det['score']
+                         except:
+                             pass
+                             
+                     final_marks = section_1_score + section_2_score
                      
                      # Format Marks string (e.g. "1:A 2:B ...")
                      marks_str = ""
@@ -161,6 +189,9 @@ def process_omr(answer_key: UploadFile = File(...)):
                          "student_name": student_name,
                          "marks": marks_str,
                          "total_score": total_score,
+                         "section_1_score": section_1_score,
+                         "section_2_score": section_2_score,
+                         "final_marks": final_marks,
                          "details": details
                      })
                  except Exception as e:
@@ -184,12 +215,14 @@ def process_omr(answer_key: UploadFile = File(...)):
                     "Set": r["set"],
                     "Student name": r["student_name"],
                     "Marks": r["marks"],
-                    "Total Score": r["total_score"]
+                    "Section 1": r["section_1_score"],
+                    "Section 2": r["section_2_score"],
+                    "Final Marks": r["final_marks"]
                 }
                 csv_data.append(row)
                 
             # Define column order
-            cols = ["Filename", "Center code", "Roll no", "Set", "Student name", "Marks", "Total Score"]
+            cols = ["Filename", "Center code", "Roll no", "Set", "Student name", "Marks", "Section 1", "Section 2", "Final Marks"]
             pd.DataFrame(csv_data).to_csv(output_csv, index=False, columns=cols)
             return {"message": "Processing complete", "results_file": output_csv, "data": results}
         
