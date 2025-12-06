@@ -476,6 +476,26 @@ class OMREngine:
         blur = cv2.GaussianBlur(gray, (5,5), 0)
         _, thresh_roi = cv2.threshold(blur, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
 
+    def process_answers_block(self, img, all_bubbles):
+        # img is the warped answer block (grayscale or BGR)
+        # all_bubbles is a list of contours found in the block (may be incomplete)
+
+        # Implement robust Grid Sampling
+        
+        if len(img.shape) == 3:
+            gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        else:
+            gray = img
+
+        # Apply Gamma and CLAHE for better signal
+        gray = self.apply_gamma(gray, gamma=0.5)
+        clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8,8))
+        gray = clahe.apply(gray)
+        
+        # Threshold for sampling
+        blur = cv2.GaussianBlur(gray, (5,5), 0)
+        _, thresh_roi = cv2.threshold(blur, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
+
         # The image has 4 "Panels" of questions.
         # Panel 1: Q1-15. Panel 2: Q16-30. Panel 3: Q31-45. Panel 4: Q46-60.
         
@@ -490,39 +510,61 @@ class OMREngine:
             x_end = (col_idx + 1) * col_width
             strip_thresh = thresh_roi[:, x_start:x_end]
             
-            # Simple grid:
-            # 15 rows.
-            row_height = h / 15.0
+            # Use fixed positions relative to strip width for stability
+            # Strip width is ~502px.
+            # Manual Col Calibration: 41%, 52%, 63%, 74% (Base)
+            base_percentages = [0.41, 0.52, 0.63, 0.74]
             
-            # Find horizontal peaks (Columns A, B, C, D)
-            proj_x = np.sum(strip_thresh, axis=0)
+            # Apply per-panel shifts as requested
+            # Panel 0: Base
+            # Panel 1: "slightly towards right" -> Increased to +2.5%
+            # Panel 2: "more towards right" -> Increased to +4.5%
+            # Panel 3: "much more towards right" -> Increased further to +7.5%
             
-            # Smooth projection (Convert to float32 for GaussianBlur)
-            proj_x = proj_x.astype(np.float32)
-            proj_x = cv2.GaussianBlur(proj_x.reshape(1, -1), (21, 1), 0).flatten()
+            shift = 0.0
+            if col_idx == 1:
+                shift = 0.025
+            elif col_idx == 2:
+                shift = 0.045
+            elif col_idx == 3:
+                shift = 0.075
+                
+            col_percentages = [p + shift for p in base_percentages]
+            cols_x = [int(col_width * p) for p in col_percentages]
             
-            # Find peaks
-            peaks = []
-            for i in range(1, len(proj_x)-1):
-                if proj_x[i] > proj_x[i-1] and proj_x[i] > proj_x[i+1]:
-                    if proj_x[i] > np.max(proj_x) * 0.2:
-                        peaks.append(i)
+            # Print for debug
+            if col_idx == 0:
+                print(f"DEBUG: Using Final Cols X: {cols_x} (Strip W: {col_width})", flush=True)
+
+            # Manual Row Calibration Variables
+            gap_size_ratio = 1.15 # Gap size relative to a row height (increased to 115%)
             
-            # Determine column X coordinates
-            if len(peaks) >= 4:
-                # Take rightmost 4 (assuming Q num is left)
-                cols_x = sorted(peaks)[-4:]
-            else:
-                # Fallback: Fixed positions
-                # A=35%, B=50%, C=65%, D=80% of strip width
-                cols_x = [int(col_width * p) for p in [0.35, 0.50, 0.65, 0.80]]
+            # Total units = 15 rows + 2 gaps
+            total_units = 15.0 + (2.0 * gap_size_ratio)
+            # Set step size to 0.765 as requested
+            step = (h / total_units) * 0.765
+            
+            rows_y = []
+            current_y = step * 3.7 # Start at 3.7x as requested
+            
+            for i in range(15):
+                rows_y.append(int(current_y))
+                
+                # Increment for next row
+                if i == 4 or i == 9: # After 5th and 10th row (index 4 and 9)
+                    current_y += step * (1.0 + gap_size_ratio)
+                else:
+                    current_y += step
+
+            if col_idx == 0:
+                print(f"DEBUG: Manual Row Grid: Step={step:.1f}, GapRatio={gap_size_ratio}", flush=True)
 
             # Iterate 15 rows
             for r in range(15):
                 q_num = col_idx * 15 + (r + 1)
                 
                 # Row Y center
-                cy = int((r + 0.5) * row_height)
+                cy = rows_y[r]
                 
                 # Sample 4 options
                 ratios = []
@@ -541,16 +583,42 @@ class OMREngine:
                     else:
                         ratios.append(0.0)
                 
+                # Debug Visualization: Draw grid points on debug image
+                # Check if debug image exists for this col, else create
+                if f"debug_panel_{col_idx}" not in locals():
+                     # Create color version of strip for drawing
+                     debug_panel = img[:, x_start:x_end].copy()
+                     if len(debug_panel.shape) == 2:
+                         debug_panel = cv2.cvtColor(debug_panel, cv2.COLOR_GRAY2BGR)
+                else:
+                     # Reuse existing (would need dict, omitting reuse for simplicity, overwriting)
+                     debug_panel = img[:, x_start:x_end].copy()
+                     if len(debug_panel.shape) == 2:
+                         debug_panel = cv2.cvtColor(debug_panel, cv2.COLOR_GRAY2BGR)
+
+                # Draw Vertical Lines for this strip
+                colors = [(255, 0, 0), (0, 255, 0), (0, 0, 255), (0, 255, 255)] # Blue, Green, Red, Yellow
+                for i, cx in enumerate(cols_x):
+                    cv2.line(debug_panel, (cx, 0), (cx, h), colors[i % 4], 2)
+                
+                # Draw Horizontal Rows (Magenta)
+                for ry in rows_y:
+                    cv2.line(debug_panel, (0, ry), (col_width, ry), (255, 0, 255), 1)
+
+                # Save this strip as debug image
+                cv2.imwrite(f"debug_panel_{col_idx}.jpg", debug_panel)
+
+
                 # Determine answer
                 options_labels = ['A', 'B', 'C', 'D']
                 if not ratios:
                     answers[f"Q{q_num}"] = ''
                     continue
-                    
+                        
                 max_idx = np.argmax(ratios)
                 max_val = ratios[max_idx]
                 
-                if max_val > 0.02: # Threshold lowered to 0.02 for >55 answers
+                if max_val > 0.02: 
                     answers[f"Q{q_num}"] = options_labels[max_idx]
                 else:
                     answers[f"Q{q_num}"] = ''
